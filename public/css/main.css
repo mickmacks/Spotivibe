@@ -1,6 +1,56 @@
-* {
+/*  H T M L  T A G S  */
 
-	color: blue;
+body {}
+
+nav.nav {
+
+	color: #fff;
+    background-color: #111;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
 
 }
 
+nav ul {}
+
+nav ul li {}
+
+nav ul li a {
+
+	color: white;
+
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+h4 {}
+
+p {}
+
+a {}
+
+a:hover {}
+
+a:active {}
+
+img {}
+
+/*  C L A S S E S  */
+
+.classes {}
+
+/*  I D S  */
+
+#index-banner {
+
+	background-color: #00f0be;
+	background-image: url('/imgs/background1.jpg');
+	width: 1000px;
+	height: 700px;
+
+}
