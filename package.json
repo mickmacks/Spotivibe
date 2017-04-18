@@ -1,0 +1,25 @@
+{
+  "name": "spotivibe",
+  "version": "1.0.0",
+  "description": "Create an app integrating APIs with MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickmacks/Spotivibe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mickmacks/Spotivibe/issues"
+  },
+  "homepage": "https://github.com/mickmacks/Spotivibe#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.5"
+  }
+}
