@@ -1,13 +1,13 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-// var Song = require('./song');
+var Genre = require('./genre');
 
 var CardSchema = new Schema({
   playlistName: String,
   playlistLink: String,
   genre: String,
-  artistName: String,
+  artistNames: [],
   owner: String
 });
 

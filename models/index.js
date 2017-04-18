@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/tunely_test");
+mongoose.connect("mongodb://localhost/spotify");
 
-// var Album = require('./album');
-//
-// module.exports.Album = Album;
+var Genre = require('./genre');
+
+module.exports.Genre = Genre;
 module.exports.Card = require('./card');
