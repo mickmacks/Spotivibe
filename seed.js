@@ -9,7 +9,7 @@ cardSeed.push({
   playlistLink: "URL.dude",
   genre: "wild",
   artistNames: ["Tivo", "Doug"],
-  owner: Mike
+  owner: "Mike"
 });
 cardSeed.push({
   playlistName: "Smoooothe",
@@ -21,11 +21,11 @@ cardSeed.push({
 
 db.Card.remove({}, function(err, cards){
 
-  db.Card.create(cardEach, function(err, cards){
+  db.Card.create(cardSeed, function(err, cards){
     if (err) { return console.log('ERROR', err); }
     console.log("all cards:", cards);
     // console.log("created", albums.length, "albums");
     process.exit();
-  });
+  });  //  db.Card.create
 
-});
+});  //  db.Card.remove
