@@ -1,6 +1,10 @@
 /*  H T M L  T A G S  */
 
-body {}
+body {
+
+	width: 100%;
+
+}
 
 nav.nav {
 
@@ -12,7 +16,12 @@ nav.nav {
 
 }
 
-nav ul {}
+nav ul {
+
+	transform: translateX(32%);
+	webkit-transform: translateX(-32%);
+
+}
 
 nav ul li {}
 
@@ -22,7 +31,11 @@ nav ul li a {
 
 }
 
-h1 {}
+h1 {
+
+	color: white;
+
+}
 
 h2 {}
 
@@ -48,9 +61,8 @@ img {}
 
 #index-banner {
 
-	background-color: #00f0be;
 	background-image: url('/imgs/background1.jpg');
-	width: 1000px;
-	height: 700px;
+	width: 100%;
+	height: 100vh;
 
 }
