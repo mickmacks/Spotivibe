@@ -17,20 +17,23 @@ $(document).ready(function() {
 // function sayHello() {console.log('Hello!');};
 
 // when a delete button for an album is clicked
-function handleDeleteCardClick(e) {
- console.log("clicked delete!");
+function handleDeleteCardClick(e)
+{
  // console.log($(this));  //  this gives object of button
  // var cardId = $(this).data('cardId');
-  // $(this).parents('.card').data('cardId');
-  var thisObj = $(this).parents('.card');
+  var id = $(this).closest('.activity-card').data('card-id');  //  '.data('card-id')' is same as '<div data-card-id=' below.
+  console.log(id);
+  // var thisObj = $('.id');
   // return thisObj;
- console.log(thisObj );  //  (activity-card) if from app.js container,  activities-container from html
+ // console.log(thisObj );  //  (activity-card) if from app.js container,  activities-container from html
  // $.ajax({
  //   url: '/api/albums/' + cardId,
  //   method: 'DELETE',
  //   success: handleDeleteAlbumSuccess
  // });
 }  //  unction handleDeleteCardClick
+
+
 
   // HANDLE FORM SUBMISSION
   // $('#album-form form').on('submit', function(e) {
@@ -46,10 +49,10 @@ function handleDeleteCardClick(e) {
 
   // CREATE
   // catch and handle the click on an add playlist button event
-  // $('#add-activity').on('click', '.add-playlist', handleAddPlaylistClick);
+  // $('#activities').on('click', '.add-playlist', handleAddPlaylistClick);
 
   // catch and handle the click on save playlist button event
-  // $('#activity-card-modal').on('click', '.save-playlist', handleSaveChangesClick);
+  // $('#activities').on('click', '.save-playlist', handleSaveChangesClick);
 
   // PLAY
   // catch and handle the click on play playlist button event
@@ -139,9 +142,11 @@ function renderActivity(activity) {
 
   var activityHtml = (`
 
-      <div id="activity-card" class="col s12 m4">
 
-        <div id="card-id">
+      <div data-card-id="${activity._id}" class="activity-card" class="col s12 m4">
+
+        <div class="card-class">
+
 
           <h3 class="left-align">${activity.playlistName}</h3>
           <h5 class="left-align">${activity.genre}</h5>
@@ -149,9 +154,9 @@ function renderActivity(activity) {
 
         </div>
 
-        <div id="play-button"><i class="material-icons large play-icon">play_circle_filled</i></div>
+        <div><i class="material-icons large play-icon">play_circle_filled</i></div>
 
-        <div id="card-data">
+        <div class="card-data">
 
             <h6 class="left-align">Songs By</h6>
             <h4 class="left-align">${activity.artistNames}</h4>
@@ -161,13 +166,11 @@ function renderActivity(activity) {
 
         </div>
 
-      <!-- include the iframe data -->
-
       </div>
 
   `);
 
-  $('#activities').append(activityHtml);
+  $('#activity-cards-gallery').append(activityHtml);
 
 }
 
