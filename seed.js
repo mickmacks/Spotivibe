@@ -18,6 +18,13 @@ cardSeed.push({
   artistNames: ["Blue Lights"],
   owner: "Robert Redford"
 });
+cardSeed.push({
+  playlistName: "Chill",
+  playlistLink: "URL.dude3",
+  genre: "chill",
+  artistNames: ["The XX"],
+  owner: "DJ Khalid"
+});
 
 db.Card.remove({}, function(err, cards){
 

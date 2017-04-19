@@ -12,6 +12,8 @@ $(document).ready(function() {
   });
 
 
+
+
   // HANDLE FORM SUBMISSION
   // $('#album-form form').on('submit', function(e) {
   //   e.preventDefault();
@@ -29,7 +31,7 @@ $(document).ready(function() {
   // $('#add-activity').on('click', '.add-playlist', handleAddPlaylistClick);
 
   // catch and handle the click on save playlist button event
-  // $('#activity-card-modal').on('click', '.save-playlist', handleSaveChangesClick);
+  // $('#activities').on('click', '.save-playlist', handleSaveChangesClick);
 
   // PLAY 
   // catch and handle the click on play playlist button event
@@ -146,7 +148,7 @@ function renderActivity(activity) {
 
   `);
 
-  $('#activities').append(activityHtml);
+  $('#activity-cards-gallery').append(activityHtml);
 
 }
 
