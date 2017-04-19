@@ -10,24 +10,27 @@ $(document).ready(function() {
     url: '/api/cards',
     success: renderMultipleActivities
   });
-  $('#activities').on('click', '.mike_test_delete', sayHello);
+  $('#activities').on('click', '.mike_test_delete', handleDeleteCardClick);
 
 // $('#activity-card').on('click', handleDeleteCardClick);
 });  //  $(document).ready
-function sayHello() {console.log('Hello!');};
+// function sayHello() {console.log('Hello!');};
 
 // when a delete button for an album is clicked
-// function handleDeleteCardClick(e) {
-//  console.log("clicked delete!");
+function handleDeleteCardClick(e) {
+ console.log("clicked delete!");
+ // console.log($(this));  //  this gives object of button
  // var cardId = $(this).data('cardId');
- //  $(this).parents('.card').data('cardId');
- // console.log('someone wants to delete card id=' + cardId );  //  (activity-card) if from app.js container,  activities-container from html
+  // $(this).parents('.card').data('cardId');
+  var thisObj = $(this).parents('.card');
+  // return thisObj;
+ console.log(thisObj );  //  (activity-card) if from app.js container,  activities-container from html
  // $.ajax({
  //   url: '/api/albums/' + cardId,
  //   method: 'DELETE',
  //   success: handleDeleteAlbumSuccess
  // });
-
+}  //  unction handleDeleteCardClick
 
   // HANDLE FORM SUBMISSION
   // $('#album-form form').on('submit', function(e) {
