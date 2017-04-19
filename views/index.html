@@ -27,76 +27,49 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 
-
 </head>
+
 <body>		
 
-  <nav class="nav">
-    <div class="nav-wrapper container center">
-      <ul class="center">
-        <li><a href="#">Navbar Link</a></li>
-        <li><a href="#">Navbar Link</a></li>
-        <li><a href="#">Navbar Link</a></li>
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
+    <nav class="nav">
+      <div class="nav-wrapper container center">
+        <ul class="center">
+          <li><a href="#">Navbar Link</a></li>
+          <li><a href="#">Navbar Link</a></li>
+          <li><a href="#">Navbar Link</a></li>
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
 
-      <!-- <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
-    </div>
-  </nav>
+        <!-- <ul id="nav-mobile" class="side-nav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
+      </div>
+    </nav>
 
-<div id="index-banner">
-    <div class="container">
-        <br><br>
-        	<h1 class="header center">Spotivibe</h1>
-        <div class="row center">
-        	<h5 class="header col s12 light">Set the tune. Set the mood. Instantly.</h5>
+    <div id="index-banner">
+        <div class="container">
+            <br><br>
+            	<h1 class="header center">Spotivibe</h1>
+            <div class="row center">
+            	<h5 class="header col s12 light">Set the tune. Set the mood. Instantly.</h5>
+            </div>
+            <br><br>
         </div>
-        <br><br>
     </div>
-</div>
-
-		<div class='header center'>
-			<div>
-			<h2>Select an Activity</h2>
-			<div class="col s12 m4"></div>
-		</div>
 
 
-<div class="container" id="activities">
-    <div class="section">	
+    <section class="container" id="activities-container">
+      <div class="row">
+    		<div class='header center'>
+    			 <h2>Select an Activity</h2>
+    		</div>
 
-	    <!--   Activity Cards   -->
-	    <div class="row">
+        <div id="activities"></div>
 
-	        <div id="activity-card" class="col s12 m4">
-				<div id="card-id">
+      </div>
 
-		        <h3 class="left-align">${card.playlistName}</h3>
-		        <h5 class="left-align">${card.genre}</h5>
-
-		        </div>
-
-		        <div id="play-button"><i class="material-icons large play-icon">play_circle_filled</i></div>
-
-	          	<div id="card-data">
-
-		        	<h6 class="left-align">Songs By</h6>
-		        	<h4 class="left-align">${card.artistNames}</h4>
-
-		        	<h6 class="left-align">Created By</h6>
-		        	<h4 class="left-align">${card.owner}</h4>
-
-	          	</div>
-
-				<!-- include the iframe data -->
-
-	        </div>
-
-	        
-
+    </section>
 
 
 	    </div>

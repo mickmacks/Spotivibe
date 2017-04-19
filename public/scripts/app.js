@@ -8,9 +8,9 @@ $(document).ready(function() {
   $.ajax({
     method: 'GET',
     url: '/',
-    success: renderMultipleAlbums
+    success: renderMultipleActivities
   });
-  
+
 
   // HANDLE FORM SUBMISSION
   // $('#album-form form').on('submit', function(e) {
@@ -105,9 +105,9 @@ $(document).ready(function() {
 // READ ACTIVITY CARDS
 ////////////////////////
 
-
-function renderMultipleActivities(activitiies) {
-  activities.forEach(function(activity) {
+// function parameter = database return object 'card'
+function renderMultipleActivities(card) {
+  card.forEach(function(activity) {
     renderActivity(activity);
   });
 }

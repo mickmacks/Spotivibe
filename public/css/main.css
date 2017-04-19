@@ -137,6 +137,12 @@ i.play-icon {
 
 }
 
+#activities-container {
+
+	min-height: 700px;
+
+}
+
 #activities {
 
 	width: 100%;
