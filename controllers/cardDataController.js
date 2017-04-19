@@ -9,16 +9,15 @@ var db = require('../models');
 function index(req, res) {
   // send back all albums as JSON
   db.Card.find({}, function(err, allCards) {
-    res.json(allCards);
-  });
+    res.json(allACards);
+  }
+)};   //    db.Card.find
 
-}
-
-// export public methods here
-module.exports = {
-  index: index
-//   create: create,
-//   show: show,
-//   destroy: destroy,
-//   update: update
-};
+  // export public methods here
+  // module.exports = {
+  //   index: index,
+  //   create: create,
+  //   show: show,
+  //   destroy: destroy,
+  //   update: update
+  // };

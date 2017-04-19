@@ -31,14 +31,14 @@ $(document).ready(function() {
   // catch and handle the click on save playlist button event
   // $('#activity-card-modal').on('click', '.save-playlist', handleSaveChangesClick);
 
-  // PLAY 
+  // PLAY
   // catch and handle the click on play playlist button event
   // $('#activity-card').on('click', '#play-button'handleNewActivitySubmit);
 
   // EDIT
   // catch and handle the click on delete playlist button event
   // $('#activity-card-modal').on('click', '.edit-album', handleActivityEditClick);
-  
+
   // DELETE
   // catch and handle the click on edit playlist button event
   // $('#activity-card-modal').on('click', '.delete-album', handleDeleteActivityClick);
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 // DISPLAY MODAL WHEN "ADD PLAYLIST" IS CLICKED
 
-// 
+//
 // function handleAddSongClick(e) {
 //   console.log('add-song clicked!');
 //   var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
@@ -120,11 +120,12 @@ function renderActivity(activity) {
   var activityHtml = (`
 
       <div id="activity-card" class="col s12 m4">
-          
+
         <div id="card-id">
 
           <h3 class="left-align">${activity.playlistName}</h3>
           <h5 class="left-align">${activity.genre}</h5>
+          <button type="button" class="mike_test">Delete card</d>
 
         </div>
 
@@ -246,10 +247,3 @@ function renderActivity(activity) {
 //   console.log('removing the following album from the page:', deletedAlbumId);
 //   $('div[data-album-id=' + deletedAlbumId + ']').remove();
 // }
-
-
-
-
-
-
-
