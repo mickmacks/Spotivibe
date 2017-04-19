@@ -125,7 +125,7 @@ function renderActivity(activity) {
 
           <h3 class="left-align">${activity.playlistName}</h3>
           <h5 class="left-align">${activity.genre}</h5>
-          <button type="button" class="mike_test">Delete card</d>
+          <button type="button" class="mike_test_delete">Delete card</d>
 
         </div>
 
@@ -154,6 +154,21 @@ function renderActivity(activity) {
 ////////////////////////
 // EDIT ACTIVITY CARDS
 ////////////////////////
+
+// delete card when its delete button is clicked
+// 'activities-container' is div container in html - shoud we use div in reoccuring container? activity-card
+ $('#activities-container').on('click', '.mike_test_delete', handleDeleteCardClick);
+
+ // when a delete button for an album is clicked
+function handleDeleteCardClick(e) {
+  var cardId = $(this).parents('.card').data('cardId');
+  console.log('someone wants to delete card id=' + cardId );  //  (activity-card) if from app.js container,  activities-container from html
+  $.ajax({
+    url: '/api/albums/' + cardId,
+    method: 'DELETE',
+    success: handleDeleteAlbumSuccess
+  });
+}
 
 // function handleAlbumEditClick(e) {
 //   var $albumRow = $(this).closest('.album');
