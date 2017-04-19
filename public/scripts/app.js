@@ -7,7 +7,7 @@ $(document).ready(function() {
   // When the user loads the page, load the seed data.
   $.ajax({
     method: 'GET',
-    url: '/',
+    url: '/api/cards',
     success: renderMultipleActivities
   });
 
