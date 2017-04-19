@@ -7,7 +7,7 @@ $(document).ready(function() {
   // When the user loads the page, load the seed data.
   $.ajax({
     method: 'GET',
-    url: '/api/cards',
+    url: '/',
     success: renderMultipleActivities
   });
 
@@ -107,12 +107,13 @@ $(document).ready(function() {
 
 // function parameter = database return object 'card'
 function renderMultipleActivities(card) {
-  card.forEach(function(activity) {
-    renderActivity(activity);
-  });
+  console.log('ajax success');
+  // card.forEach(function(activity) {
+  //   renderActivity(activity);
+  // });
 }
 
-function renderActivity(activity) {}
+function renderActivity(activity) {
 
   var activityHtml = (`
 
