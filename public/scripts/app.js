@@ -107,12 +107,12 @@ $(document).ready(function() {
 
 // function parameter = database return object 'card'
 function renderMultipleActivities(activities) {
-  
+
   console.log(activities)
 
-  // activities.forEach(function(activity) {
-  //   renderActivity(activity);
-  // });
+  activities.forEach(function(activity) {
+    renderActivity(activity);
+  });
 }
 
 function renderActivity(activity) {
@@ -124,8 +124,8 @@ function renderActivity(activity) {
       <div id="activity-card" class="col s12 m4">
       <div id="card-id">
 
-          <h3 class="left-align">${card.playlistName}</h3>
-          <h5 class="left-align">${card.genre}</h5>
+          <h3 class="left-align">${activity.playlistName}</h3>
+          <h5 class="left-align">${activity.genre}</h5>
 
           </div>
 
@@ -134,10 +134,10 @@ function renderActivity(activity) {
           <div id="card-data">
 
             <h6 class="left-align">Songs By</h6>
-            <h4 class="left-align">${card.artistNames}</h4>
+            <h4 class="left-align">${activity.artistNames}</h4>
 
             <h6 class="left-align">Created By</h6>
-            <h4 class="left-align">${card.owner}</h4>
+            <h4 class="left-align">${activity.owner}</h4>
 
           </div>
 
