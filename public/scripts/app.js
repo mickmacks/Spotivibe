@@ -21,7 +21,7 @@ $(document).ready(function() {
         $('select').material_select();
 
 
-  // HANDLE FORM SUBMISSION
+  // // HANDLE FORM SUBMISSION
   // $('#album-form form').on('submit', function(e) {
   //   e.preventDefault();
   //   var formData = $(this).serialize();
@@ -69,7 +69,6 @@ function handleAddActivityClick(e) {
   // var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
   // console.log('id',currentAlbumId);
   // $('#songModal').data('album-id', currentAlbumId);
-  $('#songModal').modal();  // display the modal!
 }
 
 // WHEN USER COMMITS SAVE INSIDE PLAYLIST MODAL

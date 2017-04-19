@@ -157,6 +157,22 @@ i.play-icon {
 
 }
 
+.btn-flat {
+
+	color: white;
+	padding: 20px;
+	margin: 15px;
+	border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 /*  I D S  */
 
@@ -202,5 +218,7 @@ i.play-icon {
 }
 
 #add-button {
+
+	color: white;
 
 }
