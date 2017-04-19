@@ -137,6 +137,12 @@ i.play-icon {
 
 }
 
+#activities-container {
+
+	min-height: 700px;
+
+}
+
 #activities {
 
 	width: 100%;
@@ -150,7 +156,7 @@ i.play-icon {
 	width: 400px;
 	margin-left: 15px;
 	margin-right: 15px;
-	padding: 40px;
+	padding: 40px 40px 0px 40px;
 
 }
 
