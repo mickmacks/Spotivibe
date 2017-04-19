@@ -134,6 +134,29 @@ i.play-icon {
   display: none;
 }
 
+.activity-card {
+
+	background-color: white;
+	border-radius: 20px;
+	min-width: 300px;
+	max-width: 350px;
+	margin: 15px;
+	padding: 40px 40px 0px 40px;
+
+}
+
+.card-data {
+
+	background-color: #111;
+	color: white;
+	border-radius: 20px;
+	margin-top: -50px;
+	margin-left: -40px;
+	margin-right: -40px;
+	padding: 40px;
+
+}
+
 
 /*  I D S  */
 
@@ -157,35 +180,12 @@ i.play-icon {
 
 }
 
-#activity-card {
-
-	background-color: white;
-	border-radius: 20px;
-	min-width: 300px;
-	max-width: 350px;
-	margin: 15px;
-	padding: 40px 40px 0px 40px;
-
-}
-
 #activity-cards-gallery.row {
 
 	width: 100%;
 
 }
 
-#card-data {
-
-
-	background-color: #111;
-	color: white;
-	border-radius: 20px;
-	margin-top: -50px;
-	margin-left: -40px;
-	margin-right: -40px;
-	padding: 40px;
-
-}
 
 #create-card {
 

@@ -28,7 +28,7 @@ $(document).ready(function() {
 
   // CREATE
   // catch and handle the click on an add playlist button event
-  // $('#add-activity').on('click', '.add-playlist', handleAddPlaylistClick);
+  // $('#activities').on('click', '.add-playlist', handleAddPlaylistClick);
 
   // catch and handle the click on save playlist button event
   // $('#activities').on('click', '.save-playlist', handleSaveChangesClick);
@@ -121,18 +121,18 @@ function renderActivity(activity) {
 
   var activityHtml = (`
 
-      <div id="activity-card" class="col s12 m4">
+      <div id="${activity._id}" class="activity-card" class="col s12 m4">
           
-        <div id="card-id">
+        <div class="card-class">
 
           <h3 class="left-align">${activity.playlistName}</h3>
           <h5 class="left-align">${activity.genre}</h5>
 
         </div>
 
-        <div id="play-button"><i class="material-icons large play-icon">play_circle_filled</i></div>
+        <div><i class="material-icons large play-icon">play_circle_filled</i></div>
 
-        <div id="card-data">
+        <div class="card-data">
 
             <h6 class="left-align">Songs By</h6>
             <h4 class="left-align">${activity.artistNames}</h4>
@@ -141,8 +141,6 @@ function renderActivity(activity) {
             <h4 class="left-align">${activity.owner}</h4>
 
         </div>
-
-      <!-- include the iframe data -->
 
       </div>
 
