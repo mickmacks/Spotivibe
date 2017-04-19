@@ -10,6 +10,23 @@ $(document).ready(function() {
     url: '/api/cards',
     success: renderMultipleActivities
   });
+  $('#activities').on('click', '.mike_test_delete', sayHello);
+
+// $('#activity-card').on('click', handleDeleteCardClick);
+});  //  $(document).ready
+function sayHello() {console.log('Hello!');};
+
+// when a delete button for an album is clicked
+// function handleDeleteCardClick(e) {
+//  console.log("clicked delete!");
+ // var cardId = $(this).data('cardId');
+ //  $(this).parents('.card').data('cardId');
+ // console.log('someone wants to delete card id=' + cardId );  //  (activity-card) if from app.js container,  activities-container from html
+ // $.ajax({
+ //   url: '/api/albums/' + cardId,
+ //   method: 'DELETE',
+ //   success: handleDeleteAlbumSuccess
+ // });
 
 
   // HANDLE FORM SUBMISSION
@@ -46,7 +63,7 @@ $(document).ready(function() {
 
 
 
-});
+
 
 ////////////////////////
 // CREATE/SAVE ACTIVITY CARDS
@@ -157,18 +174,9 @@ function renderActivity(activity) {
 
 // delete card when its delete button is clicked
 // 'activities-container' is div container in html - shoud we use div in reoccuring container? activity-card
- $('#activities-container').on('click', '.mike_test_delete', handleDeleteCardClick);
 
- // when a delete button for an album is clicked
-function handleDeleteCardClick(e) {
-  var cardId = $(this).parents('.card').data('cardId');
-  console.log('someone wants to delete card id=' + cardId );  //  (activity-card) if from app.js container,  activities-container from html
-  $.ajax({
-    url: '/api/albums/' + cardId,
-    method: 'DELETE',
-    success: handleDeleteAlbumSuccess
-  });
-}
+
+
 
 // function handleAlbumEditClick(e) {
 //   var $albumRow = $(this).closest('.album');
