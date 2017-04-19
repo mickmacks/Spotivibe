@@ -40,7 +40,7 @@ app.get('/', function homepage (req, res) {
  // app.post('/api/albums', controllers.albums.create);
  app.delete('/api/cards/:cardId', controllers.cardEdit.destroy);
  // app.put('/api/albums/:albumId', controllers.albums.update);
- // app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
+ app.post('/api/cards/:cardId', controllers.cardEdit.update);
 
 
 
