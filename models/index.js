@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/spotify");
+// for heroku got to change above line
 
 var Genre = require('./genre');
 

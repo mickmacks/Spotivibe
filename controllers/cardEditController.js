@@ -6,11 +6,21 @@ var db = require('../models');
 
 
 // GET /api/cards
-function delete(req, res) {
+function destroy(req, res) {  // delete is a reserved word !!!
   // send back all albums as JSON
-  console.log("you just destroyed " + req + " !!!");
   // find one card by id, delete it, and send it back as JSON
-  // db.Album.findOneAndRemove({ _id: req.params.cardId }, function(err, foundCard){
-  //   // note you could send just send 204, but we're sending 200 and the deleted entity
-  //   res.json(foundCard);
+  db.Card.findOneAndRemove({ _id: req.params.cardId }, function(err, foundCard){
+    console.log("you just destroyed " + foundCard + " !!!");
+    // note you could send just send 204, but we're sending 200 and the deleted entity
+    res.json(foundCard);
+});  //   db.Card.findOne
 }
+
+// export public methods here
+module.exports = {
+  destroy: destroy
+  // create: create,
+  // show: show,
+  // destroy: destroy,
+  // update: update
+};
