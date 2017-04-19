@@ -9,7 +9,7 @@ var db = require('../models');
 function index(req, res) {
   // send back all albums as JSON
   db.Card.find({}, function(err, allCards) {
-    res.json(allACards);
+    res.json(allCards);
   });
 
 }
