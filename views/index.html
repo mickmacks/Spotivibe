@@ -71,7 +71,7 @@
 
             <div id="create-card" class="valign-wrapper center col s12 m4">
 
-              <div><i id="add-button" class="material-icons large">add</i></div>
+             <a class="waves-effect waves-light" href="#modal1"><i id="add-button" class="material-icons large">add</i></a>
               <!-- <h6>Create Activity</h6> -->
 
             </div>
@@ -84,45 +84,71 @@
 
       </div>
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h2>Modal Header</h2>
+      <p>A bunch of text</p>
+
+        <div class="row">
+          <form class="col s12">
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Choose a name…" id="playlist_name" type="text" class="validate">
+                <label for="playlist_name">Playlist Name</label>
+              </div>
+            </div>
+          
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose a genre...</option>
+                <option value="1">Chill</option>
+                <option value="2">Metal</option>
+                <option value="3">HipHop</option>
+              </select>
+              <label>Genre</label>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Add your spotify playlist URI…" id="playlist_uri" type="text" class="validate">
+                <label for="playlist_uri">Spotify Playlist URI</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Artist names…" id="artists" type="text" class="validate">
+                <label for="artists">Songs By</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Enter your name…" id="creator" type="text" class="validate">
+                <label for="creator">Created By</label>
+              </div>
+            </div>
+            
+          </form>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect blue-grey lighten-5 waves-white btn-flat">CANCEL</a>
+      <a href="#!" class="modal-action modal-close waves-effect teal waves-teal btn-flat">SAVE CHANGES</a>
+      <a href="#!" class="modal-action modal-close waves-effect red waves-red btn-flat">DELETE</a>
+    </div>
+  </div>
+          
+          
+      
+
+
     </section>
 
-    <!-- begin songModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
-            <h4 class="modal-title">Create Song</h4>
-          </div>
-          <div class="modal-body">
 
-            <fieldset class='form-horizontal'>
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="songName">Song Name</label>
-                <div class="col-md-4">
-                  <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Number input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="trackNumber">Track Number</label>
-                <div class="col-md-4">
-                  <input id="trackNumber" name="trackNumber" type="number" placeholder="" class="form-control input-md">
-                </div>
-              </div>
-            </fieldset>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="saveSong">Edit</button>
-            <button type="button" class="btn btn-primary" id="saveSong">Delete</button>
-            <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
 
   <footer class="page-footer grey">

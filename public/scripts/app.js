@@ -11,7 +11,14 @@ $(document).ready(function() {
     success: renderMultipleActivities
   });
 
+        //initialize all modals           
+        $('.modal').modal();
 
+        //or by click on trigger
+        $('.trigger-modal').modal();
+
+        //form select dropdown animation
+        $('select').material_select();
 
 
   // HANDLE FORM SUBMISSION
@@ -28,7 +35,7 @@ $(document).ready(function() {
 
   // CREATE
   // catch and handle the click on an add playlist button event
-  // $('#activities').on('click', '.add-playlist', handleAddPlaylistClick);
+  $('#activities').on('click', '#add-button', handleAddActivityClick);
 
   // catch and handle the click on save playlist button event
   // $('#activities').on('click', '.save-playlist', handleSaveChangesClick);
@@ -56,14 +63,14 @@ $(document).ready(function() {
 
 // DISPLAY MODAL WHEN "ADD PLAYLIST" IS CLICKED
 
-// 
-// function handleAddSongClick(e) {
-//   console.log('add-song clicked!');
-//   var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-//   console.log('id',currentAlbumId);
-//   $('#songModal').data('album-id', currentAlbumId);
-//   $('#songModal').modal();  // display the modal!
-// }
+
+function handleAddActivityClick(e) {
+  console.log('Add Activity clicked!');
+  // var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+  // console.log('id',currentAlbumId);
+  // $('#songModal').data('album-id', currentAlbumId);
+  $('#songModal').modal();  // display the modal!
+}
 
 // WHEN USER COMMITS SAVE INSIDE PLAYLIST MODAL
 

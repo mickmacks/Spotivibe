@@ -125,8 +125,8 @@ i.play-icon {
 
 	margin-top: -25px;
 	color: #64ffda;
-	transform: translateX(125%);
-	webkit-transform: translateX(-125%);
+	transform: translateX(200%);
+	webkit-transform: translateX(-200%);
 
 }
 
