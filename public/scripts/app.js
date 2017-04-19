@@ -119,19 +119,18 @@ function renderActivity(activity) {
 
   var activityHtml = (`
 
-      <div class="row">
-
       <div id="activity-card" class="col s12 m4">
-      <div id="card-id">
+          
+        <div id="card-id">
 
           <h3 class="left-align">${activity.playlistName}</h3>
           <h5 class="left-align">${activity.genre}</h5>
 
-          </div>
+        </div>
 
-          <div id="play-button"><i class="material-icons large play-icon">play_circle_filled</i></div>
+        <div id="play-button"><i class="material-icons large play-icon">play_circle_filled</i></div>
 
-          <div id="card-data">
+        <div id="card-data">
 
             <h6 class="left-align">Songs By</h6>
             <h4 class="left-align">${activity.artistNames}</h4>
@@ -139,7 +138,7 @@ function renderActivity(activity) {
             <h6 class="left-align">Created By</h6>
             <h4 class="left-align">${activity.owner}</h4>
 
-          </div>
+        </div>
 
       <!-- include the iframe data -->
 
@@ -147,7 +146,7 @@ function renderActivity(activity) {
 
   `);
 
-  $('#activities').prepend(activityHtml);
+  $('#activities').append(activityHtml);
 
 }
 
