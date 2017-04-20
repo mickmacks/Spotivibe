@@ -25,14 +25,38 @@ cardSeed.push({
   artistNames: ["The XX"],
   owner: "DJ Khalid"
 });
+var genreSeed =[];
+genreSeed.push({
+  genreName: "wild",
+  background: "./public/imgs/background1.jpg",
+  sound: "",
+  color_code: "012345"
+});
+genreSeed.push({
+  genreName: "jazz",
+  background: "./public/imgs/background2.jpg",
+  sound: "",
+  color_code: "ABCDEF"
+});
+genreSeed.push({
+  genreName: "OREGAMI",
+  background: "./public/imgs/background3.jpg",
+  sound: "",
+  color_code: "091837"
+});
+
+db.Genre.remove({}, function(err, genres){
+  db.Genre.create(cardSeed, function(err, genres){
+    if (err) { return console.log('ERROR', err); }
+    console.log("all genres:", genres);
+    process.exit();
+  });  //  db.Genre.create
+});  //  db.Genre.remove
 
 db.Card.remove({}, function(err, cards){
-
   db.Card.create(cardSeed, function(err, cards){
     if (err) { return console.log('ERROR', err); }
     console.log("all cards:", cards);
-    // console.log("created", albums.length, "albums");
     process.exit();
   });  //  db.Card.create
-
 });  //  db.Card.remove
