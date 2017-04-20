@@ -12,27 +12,28 @@ $(document).ready(function() {
   });
   $('#activities').on('click', '.mike_test_delete', handleDeleteCardClick);
 
-// $('#activity-card').on('click', handleDeleteCardClick);
 });  //  $(document).ready
-// function sayHello() {console.log('Hello!');};
 
-// when a delete button for an album is clicked
 function handleDeleteCardClick(e)
-{
- // console.log($(this));  //  this gives object of button
- // var cardId = $(this).data('cardId');
+  {
   var id = $(this).closest('.activity-card').data('card-id');  //  '.data('card-id')' is same as '<div data-card-id=' below.
   console.log(id);
-  // var thisObj = $('.id');
-  // return thisObj;
- // console.log(thisObj );  //  (activity-card) if from app.js container,  activities-container from html
- // $.ajax({
- //   url: '/api/albums/' + cardId,
- //   method: 'DELETE',
- //   success: handleDeleteAlbumSuccess
- // });
-}  //  unction handleDeleteCardClick
+  // $('div[data-album-id=' + deletedAlbumId + ']').remove();
+ $.ajax({
+   url: '/api/cards/' + id,
+   method: 'DELETE',
+   success: handleDeleteCardSuccess
+ });
+}  //  function handleDeleteCardClick
 
+// callback after DELETE /api/albums/:id
+function handleDeleteCardSuccess(data) {
+  console.log("deleted card from buttton");
+  console.log(data);
+  var deletedCardId = data._id;
+  console.log('removing the following Card from the page:', deletedCardId);
+  $('div[data-card-id=' + deletedCardId + ']').remove();
+}
 
 
   // HANDLE FORM SUBMISSION

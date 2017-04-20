@@ -7,13 +7,13 @@ var db = require('../models');
 
 // GET /api/cards
 function destroy(req, res) {  // delete is a reserved word !!!
-  // send back all albums as JSON
   // find one card by id, delete it, and send it back as JSON
+  console.log("cardEditController.js recieved message from delete button")
   db.Card.findOneAndRemove({ _id: req.params.cardId }, function(err, foundCard){
     console.log("you just destroyed " + foundCard + " !!!");
     // note you could send just send 204, but we're sending 200 and the deleted entity
     res.json(foundCard);
-});  //   db.Card.findOne
+});  //   db.Card.findOneAndRemove
 }
 
 
