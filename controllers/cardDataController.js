@@ -28,6 +28,17 @@ function create(req, res) {
 
 }
 
+// SHOW /api/cards
+function show(req, res) {
+
+  // find one card by id and send it back as JSON
+  db.Card.findById(req.params.cardId, function(err, card) {
+    if(err) { console.log('error', err); }
+    console.log('responding with', card);
+    res.json(card);
+  });
+}
+
 // DESTROY /api/cards
 function destroy(req, res) {  // delete is a reserved word !!!
   // find one card by id, delete it, and send it back as JSON
@@ -43,7 +54,7 @@ function destroy(req, res) {  // delete is a reserved word !!!
 module.exports = {
   index: index,
   create: create,
-  // show: show,
+  show: show,
   destroy: destroy
 //   update: update
 };

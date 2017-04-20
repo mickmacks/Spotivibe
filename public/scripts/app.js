@@ -81,13 +81,31 @@ function handleEditActivityClick(e) {
   var $card = $(this).closest('.activity-card');
   var $cardId = $card.data('card-id');
 
+  $.ajax({
+    method: 'GET',
+    url: '/api/cards/' + $cardId,
+    success: populateEditForm
+  });
+
+}
+
+function populateEditForm(data) {
+
+  console.log(data);
+
+  console.log(data.playlistName);
+
   var $modal = $('#modal1');
 
-  var $playlistName = $modal.find('#playlistName').html();
-  var $playlistGenre = $modal.find('#genreSelect').html();
-  var $playlistLink = $modal.find('#playlistLink').html();
-  var $playlistArtists = $modal.find('#artistNames').html();
-  var $playlistOwner = $modal.find('#owner').html();
+  $modal.find('#playlistName').val("" + data.playlistName);
+  
+  $modal.find('#genreSelect').val("" + data.genre);
+  $modal.find('#playlistLink').val("" + data.playlistLink);
+  $modal.find('#artistNames').val("" + data.artistNames);
+  $modal.find('#owner').val("" + data.owner);
+
+
+}
 
   // $.get('/api/cards/' + $cardId, formData, function(activity) {
   //   console.log('card after POST', activity);
@@ -106,8 +124,6 @@ function handleEditActivityClick(e) {
 //     // });
 
 //     // $(this).trigger("reset");
-
-}
 
 // function handleAlbumEditClick(e) {
 //   var $albumRow = $(this).closest('.album');

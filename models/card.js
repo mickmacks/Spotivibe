@@ -7,7 +7,7 @@ var CardSchema = new Schema({
   playlistName: String,
   playlistLink: String,
   genre: String,
-  artistNames: [],
+  artistNames: [String],
   owner: String
 });
 
