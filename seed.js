@@ -46,10 +46,10 @@ genreSeed.push({
 });
 
 db.Genre.remove({}, function(err, genres){
-  db.Genre.create(cardSeed, function(err, genres){
+  db.Genre.create(genreSeed, function(err, genres){
     if (err) { return console.log('ERROR', err); }
     console.log("all genres:", genres);
-    process.exit();
+    // process.exit();
   });  //  db.Genre.create
 });  //  db.Genre.remove
 
@@ -57,6 +57,6 @@ db.Card.remove({}, function(err, cards){
   db.Card.create(cardSeed, function(err, cards){
     if (err) { return console.log('ERROR', err); }
     console.log("all cards:", cards);
-    process.exit();
+    // process.exit();
   });  //  db.Card.create
 });  //  db.Card.remove
