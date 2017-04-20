@@ -148,8 +148,8 @@ i.play-icon {
 	background-color: #00f0be;
 	padding: 12px;
 	color: white;
-	transform: translateX(220%);
-	webkit-transform: translateX(-220%);
+	transform: translateX(175%);
+	webkit-transform: translateX(-175%);
 
 }
 
@@ -227,6 +227,7 @@ i.play-icon {
 #activities-container {
 
 	min-height: 700px;
+	padding-bottom: 60px;
 
 }
 

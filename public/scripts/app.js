@@ -19,8 +19,10 @@ $(document).ready(function() {
   //form select dropdown animation
   $('select').material_select();
 
-  // CREATE
+  // EDIT
   // catch and handle the click on an add playlist button event
+  $('#activities').on('click', '#edit-button', handleEditActivityClick);
+
   $('#activity-form').submit(function(e) {
 
     e.preventDefault();
@@ -37,26 +39,10 @@ $(document).ready(function() {
 
   });
 
-  // $('#activity-form').submit(function(e) {
-
-  //   e.preventDefault();
-
-  //   var formData = $(this).serializeArray();
-  //   console.log(formData);
-
-  //   $.post('/api/cards', formData, function(activity) {
-  //     console.log('card after POST', activity);
-  //     renderActivity(activity);  //render the server's response
-  //   });
-
-  //   $(this).trigger("reset");
-
-  // });
-
   //DELETE
   $('#activities').on('click', '#card-delete-button', handleDeleteCardClick);
 
-});  //  $(document).ready
+});
 
 ////////////////////////
 // DELETE ACTIVITY CARDS
@@ -82,6 +68,58 @@ function handleDeleteCardSuccess(data) {
   console.log('removing the following Card from the page:', deletedCardId);
   $('div[data-card-id=' + deletedCardId + ']').remove();
 }
+
+
+////////////////////////
+// EDIT ACTIVITY CARDS
+////////////////////////
+
+function handleEditActivityClick(e) {
+
+    e.preventDefault();
+
+    console.log('clicked edit button');
+
+    var formData = $(this).serializeArray();
+    console.log(formData);
+
+    // $.post('/api/cards', formData, function(activity) {
+    //   console.log('card after POST', activity);
+    //   renderActivity(activity);  //render the server's response
+    // });
+
+    // $(this).trigger("reset");
+
+}
+
+// function handleAlbumEditClick(e) {
+//   var $albumRow = $(this).closest('.album');
+//   var albumId = $albumRow.data('album-id');
+//   console.log('edit album', albumId);
+
+//   // show the save changes button
+//   $albumRow.find('.save-album').toggleClass('hidden');
+//   // hide the edit button
+//   $albumRow.find('.edit-album').toggleClass('hidden');
+
+
+//   // get the album name and replace its field with an input element
+//   var albumName = $albumRow.find('span.album-name').text();
+//   $albumRow.find('span.album-name').html('<input class="edit-album-name" value="' + albumName + '"></input>');
+
+//   // get the artist name and replace its field with an input element
+//   var artistName = $albumRow.find('span.artist-name').text();
+//   $albumRow.find('span.artist-name').html('<input class="edit-artist-name" value="' + artistName + '"></input>');
+
+//   // get the releasedate and replace its field with an input element
+//   var releaseDate = $albumRow.find('span.album-releaseDate').text();
+//   $albumRow.find('span.album-releaseDate').html('<input class="edit-album-releaseDate" value="' + releaseDate + '"></input>');
+// }
+
+
+
+
+
 
 
 ////////////////////////
@@ -124,7 +162,7 @@ function renderActivity(activity) {
             
             <div class="col s12 center">
             
-            <a href="#" id="edit-button"><h6>EDIT</h6></a> 
+            <a href="#modal1" id="edit-button"><h6>EDIT</h6></a> 
             <a href="#" id="card-delete-button"><h6>DELETE</h6></a> 
 
             </div>
