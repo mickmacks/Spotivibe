@@ -2,6 +2,6 @@
 
 module.exports = {
   api: require('./apiController'),
-  cardsData: require('./cardDataController')
-  // albumsSongs: require('./albumsSongscontroller')
+  cardsData: require('./cardDataController'),
+  cardEdit: require('./cardEditController')
 }
