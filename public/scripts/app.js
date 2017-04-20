@@ -112,7 +112,7 @@ function renderActivity(activity) {
 
         </div>
 
-        <div><i class="material-icons large play-icon">play_circle_filled</i></div>
+        <div><i class="material-icons medium play-icon">play_arrow</i></div>
 
         <div class="card-data">
 

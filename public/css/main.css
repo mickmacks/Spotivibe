@@ -52,6 +52,7 @@ h2 {
 	font-family: 'Merriweather', serif;
 	font-weight: 800;
 	color: #111;
+	padding: 20px 0px;
 
 }
 
@@ -91,6 +92,7 @@ h5 {
 h6 {
 
 	margin: 0px;
+	color: grey;
 	font-size: .8em;
 	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
@@ -108,10 +110,15 @@ p {
 a {
 
 	display: inline-block;
-	padding: 0px 10px;
+	padding: 5px 10px;
+
 }
 
-a:hover {}
+a h6:hover {
+	
+	color: white;
+
+}
 
 a:active {}
 
@@ -127,12 +134,13 @@ img {}
 
 i.play-icon {
 
-	margin-top: -25px;
+	margin-top: -20px;
 	border-radius: 45px;
-	background-color: white;
-	color: #64ffda;
-	transform: translateX(175%);
-	webkit-transform: translateX(-175%);
+	background-color: #00f0be;
+	padding: 12px;
+	color: white;
+	transform: translateX(220%);
+	webkit-transform: translateX(-220%);
 
 }
 
@@ -148,6 +156,7 @@ i.play-icon {
 	margin: 15px;
 	padding: 40px 40px 0px 40px;
 	display: inline-block;
+	float: left;
 
 }
 
@@ -159,7 +168,7 @@ i.play-icon {
 	border-top-right-radius: 0px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
-	margin-top: -50px;
+	margin-top: -40px;
 	margin-left: -40px;
 	margin-right: -40px;
 	padding: 40px;
@@ -169,18 +178,19 @@ i.play-icon {
 .btn-flat {
 
 	color: white;
-	padding: 20px;
-	margin: 15px;
+	padding: 0px 20px;
+	margin: 15px 0px 50px 30px;
 	border: none;
     border-radius: 2px;
     display: inline-block;
-    height: 36px;
+    height: 60px;
     line-height: 36px;
-    padding: 1rem 2rem;
+    padding: 0rem 2rem;
     text-transform: uppercase;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
 }
+
 
 
 /*  I D S  */
@@ -199,35 +209,24 @@ i.play-icon {
 
 }
 
-#activities {
-
-	width: 100%;
-
-}
-
-#activity-cards-gallery {
-
-	width: 100%;
-
-}
-
 
 #create-card {
 
-	background-color: #111111;
-	color: white;
+	background-color: #C0FFEE;
+	color: #111111;
 	border-radius: 20px;
 	width: 30%;
 	min-height: 343px;
 	max-height: 400px;
 	margin: 15px;
 	padding: 100px 40px 0px 40px;
-	display: inline-block;
+	display: block;
+	float: left;
 
 }
 
 #add-button {
 
-	color: white;
+	color: #111111;
 
 }
