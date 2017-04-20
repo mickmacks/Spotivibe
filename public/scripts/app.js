@@ -37,21 +37,21 @@ $(document).ready(function() {
 
   });
 
-  $('#activity-form').submit(function(e) {
+  // $('#activity-form').submit(function(e) {
 
-    e.preventDefault();
+  //   e.preventDefault();
 
-    var formData = $(this).serializeArray();
-    console.log(formData);
+  //   var formData = $(this).serializeArray();
+  //   console.log(formData);
 
-    $.post('/api/cards', formData, function(activity) {
-      console.log('card after POST', activity);
-      renderActivity(activity);  //render the server's response
-    });
+  //   $.post('/api/cards', formData, function(activity) {
+  //     console.log('card after POST', activity);
+  //     renderActivity(activity);  //render the server's response
+  //   });
 
-    $(this).trigger("reset");
+  //   $(this).trigger("reset");
 
-  });
+  // });
 
   //DELETE
   $('#activities').on('click', '#card-delete-button', handleDeleteCardClick);
