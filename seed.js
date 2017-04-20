@@ -27,13 +27,13 @@ cardSeed.push({
 });
 var genreSeed =[];
 genreSeed.push({
-  genreName: "CHILL",
+  genreName: "wild",
   background: "./public/imgs/background1.jpg",
   sound: "",
   color_code: "012345"
 });
 genreSeed.push({
-  genreName: "JAZZ",
+  genreName: "jazz",
   background: "./public/imgs/background2.jpg",
   sound: "",
   color_code: "ABCDEF"
@@ -44,6 +44,7 @@ genreSeed.push({
   sound: "",
   color_code: "091837"
 });
+
 db.Genre.remove({}, function(err, genres){
   db.Genre.create(cardSeed, function(err, genres){
     if (err) { return console.log('ERROR', err); }

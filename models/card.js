@@ -6,7 +6,7 @@ var Genre = require('./genre');
 var CardSchema = new Schema({
   playlistName: String,
   playlistLink: String,
-  genre: String,
+  genre: [Genre.schema],  //  link to genre:  ${GenreSchema.genreName} ???
   artistNames: [],
   owner: String
 });
