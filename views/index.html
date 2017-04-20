@@ -91,42 +91,42 @@
       <p>A bunch of text</p>
 
         <div class="row">
-          <form class="col s12">
+          <form id="activity-form" class="col s12">
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Choose a name…" id="playlist-name" type="text" class="validate">
+                <input placeholder="Choose a name…" id="playlist-name" type="text" name="playlist-name"class="validate">
                 <label for="playlist-name">Playlist Name</label>
               </div>
             </div>
           
             <div class="input-field col s12">
               <select>
-                <option value="" disabled selected>Choose a genre...</option>
-                <option value="1">Chill</option>
-                <option value="2">Metal</option>
-                <option value="3">HipHop</option>
+                <option value="" name="genre" disabled selected>Choose a genre...</option>
+                <option value="chill" name="chill">Chill</option>
+                <option value="metal" name="metal">Metal</option>
+                <option value="hiphop" name="hiphop">HipHop</option>
               </select>
               <label>Genre</label>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Add your spotify playlist URI…" id="playlist-uri" type="text" class="validate">
+                <input placeholder="Add your spotify playlist URI…" id="playlist-uri" type="text" class="validate" name="playlist-uri">
                 <label for="playlist-uri">Spotify Playlist URI</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Artist names…" id="artists" type="text" class="validate">
+                <input placeholder="Artist names…" id="artists" type="text" class="validate" name="artists">
                 <label for="artists">Songs By</label>
               </div>
             </div>
 
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Enter your name…" id="creator" type="text" class="validate">
+                <input placeholder="Enter your name…" id="creator" type="text" class="validate" name="user">
                 <label for="creator">Created By</label>
               </div>
             </div>
@@ -136,14 +136,13 @@
 
     </div>
     <div class="modal-footer">
-      <btn id="cancel-btn" class="modal-action modal-close waves-effect blue-grey lighten-5 waves-white btn-flat">CANCEL</btn>
-      <btn id="save-btn" class="modal-action modal-close waves-effect teal waves-teal btn-flat">SAVE CHANGES</btn>
-      <btn id="delete-btn" class="modal-action modal-close waves-effect red waves-red btn-flat">DELETE</btn>
+      <button id="cancel-btn" class="waves-effect blue-grey lighten-5 waves-white btn-flat">CANCEL</button>
+
+      <button type="submit" form="activity-form" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</button>
+
+      <button id="delete-btn" class="waves-effect red waves-red btn-flat">DELETE</button>
     </div>
   </div>
-          
-          
-      
 
 
     </section>

@@ -11,38 +11,31 @@ $(document).ready(function() {
     success: renderMultipleActivities
   });
 
-        //initialize all modals           
-        $('.modal').modal();
-
-        //or by click on trigger
-        $('.trigger-modal').modal();
-
-        //form select dropdown animation
-        $('select').material_select();
-
-
-  // // HANDLE FORM SUBMISSION
-  // $('#album-form form').on('submit', function(e) {
-  //   e.preventDefault();
-  //   var formData = $(this).serialize();
-  //   console.log('formData', formData);
-  //   $.post('/api/albums', formData, function(album) {
-  //     console.log('album after POST', album);
-  //     renderAlbum(album);  //render the server's response
-  //   });
-  //   $(this).trigger("reset");
-  // });
-
-  // CREATE
-  // catch and handle the click on an add playlist button event
-  $('#activities').on('click', '#add-button', handleAddActivityClick);
-
-  // catch and handle the click on save playlist button event
-  // $('#activities').on('click', '.save-playlist', handleSaveChangesClick);
+  // MODAL FUNCTIONALITY
+  //initialize all modals           
+  $('.modal').modal();
+  //or by click on trigger
+  $('.trigger-modal').modal();
+  //form select dropdown animation
+  $('select').material_select();
 
   // PLAY 
   // catch and handle the click on play playlist button event
   // $('#activity-card').on('click', '#play-button'handleNewActivitySubmit);
+
+  // CREATE
+  // catch and handle the click on an add playlist button event
+  $('#activity-form').submit(function(e) {
+
+    e.preventDefault();
+    console.log(e);
+    console.log(this);
+
+    var formData = $(this).serializeArray();
+    console.log(formData);
+
+
+  });
 
   // EDIT
   // catch and handle the click on delete playlist button event
@@ -52,23 +45,38 @@ $(document).ready(function() {
   // catch and handle the click on edit playlist button event
   // $('#activity-card-modal').on('click', '.delete-album', handleDeleteActivityClick);
 
-
-
-
 });
 
-////////////////////////
+// var currActivityId = $(this).closest('.activity-card').data('card-id'); // "5665ff1678209c64e51b4e7b"
+// console.log('id',currActivityId);
+
+/////////////////////////////
 // CREATE/SAVE ACTIVITY CARDS
-////////////////////////
+/////////////////////////////
 
-// DISPLAY MODAL WHEN "ADD PLAYLIST" IS CLICKED
+function handleSaveActivityClick(e) {
 
+  console.log('submit button works');
 
-function handleAddActivityClick(e) {
-  console.log('Add Activity clicked!');
-  // var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-  // console.log('id',currentAlbumId);
-  // $('#songModal').data('album-id', currentAlbumId);
+  // console.log('Save Activity clicked!');
+  // console.log($('#activity-form'));
+  // console.log($('#activity-form form'));
+  // console.log($('#activity-form').serialize());
+  // console.log($('#activity-form form').serialize());
+
+  // var formData = $(this).serializeArray();
+
+  // console.log(formData);
+
+  // $.post('/api/albums', formData, function(album) {
+  //   console.log('album after POST', album);
+  //   renderAlbum(album);  //render the server's response
+  // });
+  // $(this).trigger("reset");
+
+  // };
+
+  // $('#songModal').data('album-id', currActivityId);
 }
 
 // WHEN USER COMMITS SAVE INSIDE PLAYLIST MODAL
@@ -127,7 +135,7 @@ function renderActivity(activity) {
 
   var activityHtml = (`
 
-      <div id="${activity._id}" class="activity-card" class="col s12 m4">
+      <div data-card-id="${activity._id}" class="activity-card" class="col s12 m4">
           
         <div class="card-class">
 
