@@ -76,19 +76,30 @@ function handleDeleteCardSuccess(data) {
 
 function handleEditActivityClick(e) {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    console.log('clicked edit button');
+  var $card = $(this).closest('.activity-card');
+  var $cardId = $card.data('card-id');
 
-    var formData = $(this).serializeArray();
-    console.log(formData);
+  console.log('$card is:');
+  console.log($card);
+  console.log('$cardId is:');
+  console.log($cardId);
 
-    // $.post('/api/cards', formData, function(activity) {
-    //   console.log('card after POST', activity);
-    //   renderActivity(activity);  //render the server's response
-    // });
+  var $modal = $('#modal1');
+  console.log($modal);
 
-    // $(this).trigger("reset");
+  // // show the save changes button
+  // $albumRow.find('.save-album').toggleClass('hidden');
+  // // hide the edit button
+  // $albumRow.find('.edit-album').toggleClass('hidden');
+
+//     // $.post('/api/cards', formData, function(activity) {
+//     //   console.log('card after POST', activity);
+//     //   renderActivity(activity);  //render the server's response
+//     // });
+
+//     // $(this).trigger("reset");
 
 }
 
@@ -129,7 +140,7 @@ function handleEditActivityClick(e) {
 // function parameter = database return object 'card'
 function renderMultipleActivities(activities) {
 
-  console.log(activities)
+  console.log(activities);
 
   activities.forEach(function(activity) {
     renderActivity(activity);
