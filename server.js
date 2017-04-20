@@ -36,9 +36,9 @@ app.get('/', function homepage (req, res) {
 // when doesn't find cardsData in controllers, looks at index.js in controllers
  app.get('/api', controllers.api.index);
  app.get('/api/cards', controllers.cardsData.index);  // url needs api/cards
- // app.get('/api/albums/:albumId', controllers.albums.show);
+ app.get('/api/cards/:cardId', controllers.cardsData.show);  // url needs api/cards
  app.post('/api/cards', controllers.cardsData.create);
- app.delete('/api/cards/:cardId', controllers.cardEdit.destroy);
+ app.delete('/api/cards/:cardId', controllers.cardsData.destroy);
  // app.put('/api/albums/:albumId', controllers.albums.update);
  // app.post('/api/cards/:cardId', controllers.cardEdit.update); 
 

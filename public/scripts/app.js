@@ -107,7 +107,6 @@ function populateEditForm(data) {
 
 }
 
-
 ////////////////////////
 // READ ACTIVITY CARDS
 ////////////////////////
