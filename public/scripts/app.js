@@ -118,7 +118,10 @@ function renderMultipleActivities(activities) {
 
   activities.forEach(function(activity) {
     renderActivity(activity);
+    console.log(activity);
   });
+
+
 }
 
 function renderActivity(activity) {
@@ -131,7 +134,7 @@ function renderActivity(activity) {
 
 
           <h3 class="left-align">${activity.playlistName}</h3>
-          <h5 class="left-align">${activity.genre}</h5>
+          <h5 class="left-align">${activity.genre.genreName}</h5>
 
         </div>
 

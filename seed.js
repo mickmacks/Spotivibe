@@ -7,51 +7,66 @@ var cardSeed =[];
 cardSeed.push({
   playlistName: "Moody!",
   playlistLink: "URL.dude",
-  genre: "wild",
+  genre: {
+    genreName: "OREGAMI",
+    background: "./public/imgs/background3.jpg",
+    sound: "",
+    color_code: "091837"
+  },
   artistNames: ["Tivo", "Doug"],
   owner: "Mike"
 });
 cardSeed.push({
   playlistName: "Smoooothe",
   playlistLink: "URL.dude2",
-  genre: "jazz",
+  genre: {
+    genreName: "jazz",
+    background: "./public/imgs/background2.jpg",
+    sound: "",
+    color_code: "ABCDEF"
+  },
   artistNames: ["Blue Lights"],
   owner: "Robert Redford"
 });
 cardSeed.push({
   playlistName: "Chill",
   playlistLink: "URL.dude3",
-  genre: "chill",
+  genre: {
+    genreName: "wild",
+    background: "./public/imgs/background1.jpg",
+    sound: "",
+    color_code: "012345"
+  },
   artistNames: ["The XX"],
   owner: "DJ Khalid"
 });
-var genreSeed =[];
-genreSeed.push({
-  genreName: "wild",
-  background: "./public/imgs/background1.jpg",
-  sound: "",
-  color_code: "012345"
-});
-genreSeed.push({
-  genreName: "jazz",
-  background: "./public/imgs/background2.jpg",
-  sound: "",
-  color_code: "ABCDEF"
-});
-genreSeed.push({
-  genreName: "OREGAMI",
-  background: "./public/imgs/background3.jpg",
-  sound: "",
-  color_code: "091837"
-});
+// var genreSeed =[];
+// genreSeed.push({
+//   genreName: "wild",
+//   background: "./public/imgs/background1.jpg",
+//   sound: "",
+//   color_code: "012345"
+// });
+// genreSeed.push({
+//   genreName: "jazz",
+//   background: "./public/imgs/background2.jpg",
+//   sound: "",
+//   color_code: "ABCDEF"
+// });
+// genreSeed.push({
+//   genreName: "OREGAMI",
+//   background: "./public/imgs/background3.jpg",
+//   sound: "",
+//   color_code: "091837"
+// });
 
-db.Genre.remove({}, function(err, genres){
-  db.Genre.create(genreSeed, function(err, genres){
-    if (err) { return console.log('ERROR', err); }
-    console.log("all genres:", genres);
-    // process.exit();
-  });  //  db.Genre.create
-});  //  db.Genre.remove
+// db.Genre.remove({}, function(err, genres){
+//   db.Genre.create(genreSeed, function(err, genres){
+//     if (err) { return console.log('ERROR', err); }
+//     console.log("all genres:", genres);
+//     // process.exit();
+//   });  //  db.Genre.create
+// });  //  db.Genre.remove
 
 db.Card.remove({}, function(err, cards){
   db.Card.create(cardSeed, function(err, cards){
