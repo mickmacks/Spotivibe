@@ -105,7 +105,11 @@ p {
 
 }
 
-a {}
+a {
+
+	display: inline-block;
+	padding: 0px 10px;
+}
 
 a:hover {}
 
@@ -124,9 +128,11 @@ img {}
 i.play-icon {
 
 	margin-top: -25px;
+	border-radius: 45px;
+	background-color: white;
 	color: #64ffda;
-	transform: translateX(200%);
-	webkit-transform: translateX(-200%);
+	transform: translateX(175%);
+	webkit-transform: translateX(-175%);
 
 }
 
@@ -142,6 +148,7 @@ i.play-icon {
 	max-width: 350px;
 	margin: 15px;
 	padding: 40px 40px 0px 40px;
+	display: inline-block;
 
 }
 
@@ -149,7 +156,10 @@ i.play-icon {
 
 	background-color: #111;
 	color: white;
-	border-radius: 20px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 	margin-top: -50px;
 	margin-left: -40px;
 	margin-right: -40px;
@@ -214,6 +224,8 @@ i.play-icon {
 	max-height: 400px;
 	margin: 15px;
 	padding: 40px 40px 0px 40px;
+	display: inline-block;
+	position: relative;
 
 }
 

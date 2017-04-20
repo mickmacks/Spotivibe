@@ -37,8 +37,24 @@ $(document).ready(function() {
 
   });
 
+  $('#activity-form').submit(function(e) {
+
+    e.preventDefault();
+
+    var formData = $(this).serializeArray();
+    console.log(formData);
+
+    $.post('/api/cards', formData, function(activity) {
+      console.log('card after POST', activity);
+      renderActivity(activity);  //render the server's response
+    });
+
+    $(this).trigger("reset");
+
+  });
+
   //DELETE
-  $('#activities').on('click', '.mike_test_delete', handleDeleteCardClick);
+  $('#activities').on('click', '#card-delete-button', handleDeleteCardClick);
 
 });  //  $(document).ready
 
@@ -46,8 +62,8 @@ $(document).ready(function() {
 // DELETE ACTIVITY CARDS
 ////////////////////////
 
-function handleDeleteCardClick(e)
-  {
+function handleDeleteCardClick(e) {
+  e.preventDefault();
   var id = $(this).closest('.activity-card').data('card-id');  //  '.data('card-id')' is same as '<div data-card-id=' below.
   console.log(id);
   // $('div[data-album-id=' + deletedAlbumId + ']').remove();
@@ -93,7 +109,6 @@ function renderActivity(activity) {
 
           <h3 class="left-align">${activity.playlistName}</h3>
           <h5 class="left-align">${activity.genre}</h5>
-          <button type="button" class="mike_test_delete">Delete card</d>
 
         </div>
 
@@ -106,6 +121,13 @@ function renderActivity(activity) {
 
             <h6 class="left-align">Created By</h6>
             <h4 class="left-align">${activity.owner}</h4>
+            
+            <div class="col s12 center">
+            
+            <a href="#" id="edit-button"><h6>EDIT</h6></a> 
+            <a href="#" id="card-delete-button"><h6>DELETE</h6></a> 
+
+            </div>
 
         </div>
 
