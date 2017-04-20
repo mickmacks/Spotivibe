@@ -52,6 +52,7 @@ h2 {
 	font-family: 'Merriweather', serif;
 	font-weight: 800;
 	color: #111;
+	padding: 20px 0px;
 
 }
 
@@ -91,6 +92,7 @@ h5 {
 h6 {
 
 	margin: 0px;
+	color: grey;
 	font-size: .8em;
 	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
@@ -105,13 +107,31 @@ p {
 
 }
 
-a {}
+a {
 
-a:hover {}
+	display: inline-block;
+	padding: 5px 10px;
+
+}
+
+a h6:hover {
+	
+	color: white;
+
+}
 
 a:active {}
 
 img {}
+
+footer {
+
+	width: 100%;
+	background-color: #222222;
+	margin: 0px;
+	padding: 0px;
+
+}
 
 /*  C L A S S E S  */
 
@@ -123,10 +143,13 @@ img {}
 
 i.play-icon {
 
-	margin-top: -25px;
-	color: #64ffda;
-	transform: translateX(200%);
-	webkit-transform: translateX(-200%);
+	margin-top: -20px;
+	border-radius: 45px;
+	background-color: #00f0be;
+	padding: 12px;
+	color: white;
+	transform: translateX(175%);
+	webkit-transform: translateX(-175%);
 
 }
 
@@ -138,10 +161,11 @@ i.play-icon {
 
 	background-color: white;
 	border-radius: 20px;
-	min-width: 300px;
-	max-width: 350px;
+	width: 30%;
 	margin: 15px;
 	padding: 40px 40px 0px 40px;
+	display: inline-block;
+	float: left;
 
 }
 
@@ -149,8 +173,11 @@ i.play-icon {
 
 	background-color: #111;
 	color: white;
-	border-radius: 20px;
-	margin-top: -50px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	margin-top: -40px;
 	margin-left: -40px;
 	margin-right: -40px;
 	padding: 40px;
@@ -160,17 +187,30 @@ i.play-icon {
 .btn-flat {
 
 	color: white;
-	padding: 20px;
-	margin: 15px;
+	padding: 0px 20px;
+	margin: 15px 0px 50px 30px;
 	border: none;
     border-radius: 2px;
     display: inline-block;
-    height: 36px;
+    height: 60px;
     line-height: 36px;
-    padding: 1rem 2rem;
+    padding: 0rem 2rem;
     text-transform: uppercase;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
+}
+
+.page-footer {
+
+	padding: 100px 0px 50px 0px;
+
+}
+
+.footer-copyright {
+
+	height: 80px;
+	padding-top: 10px;
+
 }
 
 
@@ -187,38 +227,28 @@ i.play-icon {
 #activities-container {
 
 	min-height: 700px;
-
-}
-
-#activities {
-
-	width: 100%;
-
-}
-
-#activity-cards-gallery.row {
-
-	width: 100%;
+	padding-bottom: 60px;
 
 }
 
 
 #create-card {
 
-	background-color: #111111;
-	color: white;
+	background-color: #C0FFEE;
+	color: #111111;
 	border-radius: 20px;
-	min-width: 300px;
-	max-width: 350px;
+	width: 30%;
 	min-height: 343px;
 	max-height: 400px;
 	margin: 15px;
-	padding: 40px 40px 0px 40px;
+	padding: 100px 40px 0px 40px;
+	display: block;
+	float: left;
 
 }
 
 #add-button {
 
-	color: white;
+	color: #111111;
 
 }

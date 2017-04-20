@@ -31,7 +31,7 @@
 
 <body>		
 
-    <nav class="nav">
+<!--     <nav class="nav">
       <div class="nav-wrapper container center">
         <ul class="center">
           <li><a href="#">Navbar Link</a></li>
@@ -40,27 +40,23 @@
           <li><a href="#">Navbar Link</a></li>
         </ul>
 
-        <!-- <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
       </div>
-    </nav>
+    </nav> -->
 
     <div id="index-banner">
         <div class="container">
             <br><br>
             	<h1 class="header center">Spotivibe</h1>
             <div class="row center">
-            	<h5 class="header col s12 light">Set the tune. Set the mood. Instantly.</h5>
+            	<h4 class="header col s12 light">Set the tune. Set the mood. Instantly.</h5>
             </div>
             <br><br>
         </div>
     </div>
 
 
-    <section class="container" id="activities-container">
-      <div class="row">
+    <section class="container">
+      <div class="row" id="activities-container">
     		<div class='header center'>
     			 <h2>Select an Activity</h2>
     		</div>
@@ -69,10 +65,10 @@
           
           <div class="row" id="activity-cards-gallery">
 
-            <div id="create-card" class="valign-wrapper center col s12 m4">
+            <div id="create-card" class="valign-wrapper center">
 
              <a class="waves-effect waves-light" href="#modal1"><i id="add-button" class="material-icons large">add</i></a>
-              <!-- <h6>Create Activity</h6> -->
+              <h6>Create Activity</h6>
 
             </div>
 
@@ -135,10 +131,12 @@
         </div>
 
     </div>
-    <div class="modal-footer">
-      <button id="cancel-btn" class="waves-effect blue-grey lighten-5 waves-white btn-flat">CANCEL</button>
+    <div class="row">
+      <button id="cancel-btn" class="waves-effect blue-grey lighten-3 waves-white btn-flat">CANCEL</button>
 
-      <button type="submit" form="activity-form" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</button>
+      <button id="submit-btn" type="submit" form="activity-form" class="modal-action modal-close teal waves-effect waves-teal btn-flat">Submit</button>
+
+      <button id="edit-btn" type="submit" form="activity-form" class="hidden modal-action modal-close teal waves-effect waves-teal btn-flat">Save Changes</button>
 
       <button id="delete-btn" class="waves-effect red waves-red btn-flat">DELETE</button>
     </div>
@@ -150,21 +148,23 @@
 
 
 
-  <footer class="page-footer grey">
-    <div class="container">
+  <footer>
+    <div class="container page-footer grey darken-4 center">
       <div class="row">
-        <div class="col l6 s12">
+        <div class="col s8 offset-s2">
           <h5 class="white-text">Want to Know More?</h5>
-          <p class="grey-text text-lighten-4">To find out more about ellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper.</p>
+          <p class="grey-text text-lighten-4">To find out more about inde sermone vario sex illa a Dipylo stadia confecimus. Nam si beatus umquam fuisset, beatam vitam usque ad illum a Cyro extructum rogum pertulisset. Hoc ne statuam quidem dicturam pater aiebat, si loqui posset. Tu enim ista lenius, hic Stoicorum more nos vexat. Nunc omni virtuti vitium contrario nomine opponitur. Pauca mutat vel plura sane; Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Nunc haec primum fortasse audientis servire debemus. Sit hoc ultimum.</p>
 
         </div>
       </div>
     </div>
+
     <div class="footer-copyright black">
       <div class="container">
-      Made by <a class="white-text" href="#">Mahmoud Bachir</a> and <a class="white-text" href="#">Michael Laird</a>
+      <p class="grey-text text-lighten-4">Made by <a class="white-text" href="#">Mahmoud Bachir</a> and <a class="white-text" href="#">Michael Laird</a></p>
       </div>
     </div>
+    
   </footer>
 	
 </body>
