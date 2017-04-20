@@ -144,8 +144,7 @@ i.play-icon {
 
 	background-color: white;
 	border-radius: 20px;
-	min-width: 300px;
-	max-width: 350px;
+	width: 30%;
 	margin: 15px;
 	padding: 40px 40px 0px 40px;
 	display: inline-block;
@@ -206,7 +205,7 @@ i.play-icon {
 
 }
 
-#activity-cards-gallery.row {
+#activity-cards-gallery {
 
 	width: 100%;
 
@@ -218,14 +217,12 @@ i.play-icon {
 	background-color: #111111;
 	color: white;
 	border-radius: 20px;
-	min-width: 300px;
-	max-width: 350px;
+	width: 30%;
 	min-height: 343px;
 	max-height: 400px;
 	margin: 15px;
-	padding: 40px 40px 0px 40px;
+	padding: 100px 40px 0px 40px;
 	display: inline-block;
-	position: relative;
 
 }
 
