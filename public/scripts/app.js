@@ -28,12 +28,16 @@ $(document).ready(function() {
   $('#activity-form').submit(function(e) {
 
     e.preventDefault();
-    console.log(e);
-    console.log(this);
 
     var formData = $(this).serializeArray();
     console.log(formData);
 
+    $.post('/api/cards', formData, function(activity) {
+      console.log('card after POST', activity);
+      renderActivity(activity);  //render the server's response
+    });
+
+    $(this).trigger("reset");
 
   });
 
