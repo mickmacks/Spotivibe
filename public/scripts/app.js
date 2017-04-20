@@ -89,6 +89,11 @@ function handleEditActivityClick(e) {
   var $playlistArtists = $modal.find('#artistNames').html();
   var $playlistOwner = $modal.find('#owner').html();
 
+  // $.get('/api/cards/' + $cardId, formData, function(activity) {
+  //   console.log('card after POST', activity);
+  //   renderActivity(activity);  //render the server's response
+  // });
+
 
   // // show the save changes button
   // $albumRow.find('.save-album').toggleClass('hidden');
