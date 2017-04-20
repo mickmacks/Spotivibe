@@ -81,13 +81,14 @@ function handleEditActivityClick(e) {
   var $card = $(this).closest('.activity-card');
   var $cardId = $card.data('card-id');
 
-  console.log('$card is:');
-  console.log($card);
-  console.log('$cardId is:');
-  console.log($cardId);
-
   var $modal = $('#modal1');
-  console.log($modal);
+
+  var $playlistName = $modal.find('#playlistName').html();
+  var $playlistGenre = $modal.find('#genreSelect').html();
+  var $playlistLink = $modal.find('#playlistLink').html();
+  var $playlistArtists = $modal.find('#artistNames').html();
+  var $playlistOwner = $modal.find('#owner').html();
+
 
   // // show the save changes button
   // $albumRow.find('.save-album').toggleClass('hidden');
