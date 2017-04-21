@@ -2,6 +2,5 @@
 
 module.exports = {
   api: require('./apiController'),
-  cardsData: require('./cardDataController'),
-  cardEdit: require('./cardEditController')
+  cardsData: require('./cardDataController')
 }

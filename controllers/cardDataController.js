@@ -28,11 +28,33 @@ function create(req, res) {
 
 }
 
+// SHOW /api/cards
+function show(req, res) {
+
+  // find one card by id and send it back as JSON
+  db.Card.findById(req.params.cardId, function(err, card) {
+    if(err) { console.log('error', err); }
+    console.log('responding with', card);
+    res.json(card);
+  });
+}
+
+// DESTROY /api/cards
+function destroy(req, res) {  // delete is a reserved word !!!
+  // find one card by id, delete it, and send it back as JSON
+  console.log("cardEditController.js recieved message from delete button")
+  db.Card.findOneAndRemove({ _id: req.params.cardId }, function(err, foundCard){
+    console.log("you just destroyed " + foundCard + " !!!");
+    // note you could send just send 204, but we're sending 200 and the deleted entity
+    res.json(foundCard);
+});  //   db.Card.findOneAndRemove
+}
+
 // export public methods here
 module.exports = {
   index: index,
-  create: create
-//   show: show,
-//   destroy: destroy,
+  create: create,
+  show: show,
+  destroy: destroy
 //   update: update
 };

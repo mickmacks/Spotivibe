@@ -81,57 +81,31 @@ function handleEditActivityClick(e) {
   var $card = $(this).closest('.activity-card');
   var $cardId = $card.data('card-id');
 
-  console.log('$card is:');
-  console.log($card);
-  console.log('$cardId is:');
-  console.log($cardId);
-
-  var $modal = $('#modal1');
-  console.log($modal);
-
-  // // show the save changes button
-  // $albumRow.find('.save-album').toggleClass('hidden');
-  // // hide the edit button
-  // $albumRow.find('.edit-album').toggleClass('hidden');
-
-//     // $.post('/api/cards', formData, function(activity) {
-//     //   console.log('card after POST', activity);
-//     //   renderActivity(activity);  //render the server's response
-//     // });
-
-//     // $(this).trigger("reset");
+  $.ajax({
+    method: 'GET',
+    url: '/api/cards/' + $cardId,
+    success: populateEditForm
+  });
 
 }
 
-// function handleAlbumEditClick(e) {
-//   var $albumRow = $(this).closest('.album');
-//   var albumId = $albumRow.data('album-id');
-//   console.log('edit album', albumId);
+function populateEditForm(data) {
 
-//   // show the save changes button
-//   $albumRow.find('.save-album').toggleClass('hidden');
-//   // hide the edit button
-//   $albumRow.find('.edit-album').toggleClass('hidden');
+  console.log(data);
 
+  console.log(data.playlistName);
 
-//   // get the album name and replace its field with an input element
-//   var albumName = $albumRow.find('span.album-name').text();
-//   $albumRow.find('span.album-name').html('<input class="edit-album-name" value="' + albumName + '"></input>');
+  var $modal = $('#modal1');
 
-//   // get the artist name and replace its field with an input element
-//   var artistName = $albumRow.find('span.artist-name').text();
-//   $albumRow.find('span.artist-name').html('<input class="edit-artist-name" value="' + artistName + '"></input>');
-
-//   // get the releasedate and replace its field with an input element
-//   var releaseDate = $albumRow.find('span.album-releaseDate').text();
-//   $albumRow.find('span.album-releaseDate').html('<input class="edit-album-releaseDate" value="' + releaseDate + '"></input>');
-// }
+  $modal.find('#playlistName').val("" + data.playlistName);
+  
+  $modal.find('#genreSelect').val("" + data.genre);
+  $modal.find('#playlistLink').val("" + data.playlistLink);
+  $modal.find('#artistNames').val("" + data.artistNames);
+  $modal.find('#owner').val("" + data.owner);
 
 
-
-
-
-
+}
 
 ////////////////////////
 // READ ACTIVITY CARDS
@@ -144,7 +118,10 @@ function renderMultipleActivities(activities) {
 
   activities.forEach(function(activity) {
     renderActivity(activity);
+    console.log(activity);
   });
+
+
 }
 
 function renderActivity(activity) {
@@ -157,7 +134,7 @@ function renderActivity(activity) {
 
 
           <h3 class="left-align">${activity.playlistName}</h3>
-          <h5 class="left-align">${activity.genre}</h5>
+          <h5 class="left-align">${activity.genre.genreName}</h5>
 
         </div>
 

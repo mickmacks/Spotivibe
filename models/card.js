@@ -3,14 +3,16 @@ var Schema = mongoose.Schema;
 
 var Genre = require('./genre');
 
-// this is linking tables by embedding method
-// var CardSchema = new Schema({
-//   playlistName: String,
-//   playlistLink: String,
-//   genre: Genre.schema,  //  link to genre:  ${GenreSchema.genreName} ???
-//   artistNames: [],
-//   owner: String
-// });
+
+
+var CardSchema = new Schema({
+  playlistName: String,
+  playlistLink: String,
+  genre: Genre.schema,
+  artistNames: [String],
+  owner: String
+});
+
 
 var Card = mongoose.model('Card', CardSchema);
 
