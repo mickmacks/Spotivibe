@@ -26,7 +26,7 @@ $(document).ready(function() {
   // catch and handle the click on an add playlist button event
   $('#activities').on('click', '#edit-button', handleEditActivityClick);
 
-  // $('#activity-form').on('click', '#edit-submit-btn', handleEditSubmitForm);
+  $('#activities').on('click', '.play-icon', handlePlayButtonClick);
 
   $('#activity-form').submit(function(e) {
 
@@ -216,3 +216,40 @@ function renderActivity(activity) {
   $('#activity-cards-gallery').append(activityHtml);
 
 }
+
+  
+////////////////////////
+// PLAY BUTTON
+////////////////////////
+
+
+function handlePlayButtonClick(e) {
+
+  console.log('Hello');
+
+
+// check to see what genre was selected
+
+// if genre was chill
+
+  // change the background image
+  // play different audio
+  // animate something
+  // scroll to top
+
+// if genre was metal
+
+  // change the background image
+  // play different audio
+  // animate something
+  // scroll to top
+
+// if genre was hiphop
+
+  // change the background image
+  // play different audio
+  // animate something
+  // scroll to top
+
+}
+

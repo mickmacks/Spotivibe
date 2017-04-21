@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 
 var Genre = require('./genre');
 
+
+
 var CardSchema = new Schema({
   playlistName: String,
   playlistLink: String,
@@ -10,6 +12,7 @@ var CardSchema = new Schema({
   artistNames: [String],
   owner: String
 });
+
 
 var Card = mongoose.model('Card', CardSchema);
 

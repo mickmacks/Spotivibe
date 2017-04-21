@@ -7,59 +7,78 @@ var cardSeed =[];
 cardSeed.push({
   playlistName: "Moody!",
   playlistLink: "URL.dude",
-  // genre: Chill,
+  genre: "wild",
   artistNames: ["Tivo", "Doug"],
   owner: "Mike"
 });
 cardSeed.push({
   playlistName: "Smoooothe",
   playlistLink: "URL.dude2",
-  // genre: Chill,
+  genre: "jazz",
   artistNames: ["Blue Lights"],
   owner: "Robert Redford"
 });
 cardSeed.push({
   playlistName: "Chill",
   playlistLink: "URL.dude3",
-  // genre: Chill,
+  genre: "OREGAMI",
   artistNames: ["The XX"],
   owner: "DJ Khalid"
 });
 
-// var genreSeed =[];
+var genreSeed =[];
+genreSeed.push({
+  genreName: "wild",
+  background: "./public/imgs/background1.jpg",
+  sound: "",
+  color_code: "012345"
+});
+genreSeed.push({
+  genreName: "jazz",
+  background: "./public/imgs/background2.jpg",
+  sound: "",
+  color_code: "ABCDEF"
+});
+genreSeed.push({
+  genreName: "OREGAMI",
+  background: "./public/imgs/background3.jpg",
+  sound: "",
+  color_code: "091837"
+});
 
-// genreSeed.push(Chill);
-// genreSeed.push({
-//   genreName: "wild",
-//   background: "./public/imgs/background1.jpg",
-//   sound: "",
-//   color_code: "012345"
-// });
-// genreSeed.push({
-//   genreName: "jazz",
-//   background: "./public/imgs/background2.jpg",
-//   sound: "",
-//   color_code: "ABCDEF"
-// });
-// genreSeed.push({
-//   genreName: "OREGAMI",
-//   background: "./public/imgs/background3.jpg",
-//   sound: "",
-//   color_code: "091837"
-// });
+//  this function takes in Genre with IDs, inbed one in each card object
+function imbedCard (cardSeed, genres) {
+  for (i=0; i<cardSeed.length; i++) {
+    cardSeed[i].genre = genres[i];
+  };
+  return cardSeed;
+  console.log("just imbedded one genreSeed into each cardSeed");
+}  //  function imbedCard
 
-// db.Genre.remove({}, function(err, genres){
-//   db.Genre.create(genreSeed, function(err, genres){
-//     if (err) { return console.log('ERROR', err); }
-//     console.log("all genres:", genres);
-//     // process.exit();
-//   });  //  db.Genre.create
-// });  //  db.Genre.remove
 
-db.Card.remove({}, function(err, cards){
-  db.Card.create(cardSeed, function(err, cards){
+
+//   this first creates genre objects with ids, then imbeds one in each card object going to DB
+db.Genre.remove({}, function(err, genres){
+  db.Genre.create(genreSeed, function(err, genres){
     if (err) { return console.log('ERROR', err); }
-    console.log("all cards:", cards);
-    // process.exit();
-  });  //  db.Card.create
-});  //  db.Card.remove
+    // console.log("all genres:", genres);
+    // process.exit();   // commented out beause seened to cause problems
+      var newCards = imbedCard (cardSeed, genres);
+
+      db.Card.remove({}, function(err, cards){
+        db.Card.create(newCards, function(err, cards){
+          if (err) { return console.log('ERROR', err); }
+          console.log("all cards:", cards);
+          // process.exit();   // commented out beause seened to cause problems
+        });  //  db.Card.create
+      });  //  db.Card.remove
+  });  //  db.Genre.create
+});  //  db.Genre.remove
+
+// db.Card.remove({}, function(err, cards){
+//   db.Card.create(cardSeed, function(err, cards){
+//     if (err) { return console.log('ERROR', err); }
+//     console.log("all cards:", cards);
+//     // process.exit();   // commented out beause seened to cause problems
+//   });  //  db.Card.create
+// });  //  db.Card.remove
