@@ -16,59 +16,64 @@ var cardSeed =[];
 cardSeed.push({
   playlistName: "Moody!",
   playlistLink: "URL.dude",
-  // genre: Chill,
+  genre: "wild",
   artistNames: ["Tivo", "Doug"],
   owner: "Mike"
 });
 cardSeed.push({
   playlistName: "Smoooothe",
   playlistLink: "URL.dude2",
-  // genre: Chill,
+  genre: "jazz",
   artistNames: ["Blue Lights"],
   owner: "Robert Redford"
 });
 cardSeed.push({
   playlistName: "Chill",
   playlistLink: "URL.dude3",
-  // genre: Chill,
+  genre: "OREGAMI",
   artistNames: ["The XX"],
   owner: "DJ Khalid"
 });
 
-// var genreSeed =[];
+var genreSeed =[];
+genreSeed.push({
+  genreName: "wild",
+  background: "./public/imgs/background1.jpg",
+  sound: "",
+  color_code: "012345"
+});
+genreSeed.push({
+  genreName: "jazz",
+  background: "./public/imgs/background2.jpg",
+  sound: "",
+  color_code: "ABCDEF"
+});
+genreSeed.push({
+  genreName: "OREGAMI",
+  background: "./public/imgs/background3.jpg",
+  sound: "",
+  color_code: "091837"
+});
 
-// genreSeed.push(Chill);
-// genreSeed.push({
-//   genreName: "wild",
-//   background: "./public/imgs/background1.jpg",
-//   sound: "",
-//   color_code: "012345"
-// });
-// genreSeed.push({
-//   genreName: "jazz",
-//   background: "./public/imgs/background2.jpg",
-//   sound: "",
-//   color_code: "ABCDEF"
-// });
-// genreSeed.push({
-//   genreName: "OREGAMI",
-//   background: "./public/imgs/background3.jpg",
-//   sound: "",
-//   color_code: "091837"
-// });
+for (i=0; i<cardSeed.length; i++) {
+  cardSeed[i].genre = genreSeed[i];
+};
+console.log("just imbedded one genreSeed into each cardSeed");
+console.log(cardSeed);
 
-// db.Genre.remove({}, function(err, genres){
-//   db.Genre.create(genreSeed, function(err, genres){
-//     if (err) { return console.log('ERROR', err); }
-//     console.log("all genres:", genres);
-//     // process.exit();
-//   });  //  db.Genre.create
-// });  //  db.Genre.remove
+
+db.Genre.remove({}, function(err, genres){
+  db.Genre.create(genreSeed, function(err, genres){
+    if (err) { return console.log('ERROR', err); }
+    console.log("all genres:", genres);
+    // process.exit();   // commented out beause seened to cause problems
+  });  //  db.Genre.create
+});  //  db.Genre.remove
 
 db.Card.remove({}, function(err, cards){
   db.Card.create(cardSeed, function(err, cards){
     if (err) { return console.log('ERROR', err); }
     console.log("all cards:", cards);
-    // process.exit();
+    // process.exit();   // commented out beause seened to cause problems
   });  //  db.Card.create
 });  //  db.Card.remove
