@@ -70,12 +70,12 @@ function imbedCard (cardSeed, genres) {
 db.Genre.remove({}, function(err, genres){
   db.Genre.create(genreSeed, function(err, genres){
     if (err) { return console.log('ERROR', err); }
-    console.log("all genres:", genres);
+    // console.log("all genres:", genres);
     // process.exit();   // commented out beause seened to cause problems
       var newCards = imbedCard (cardSeed, genres);
 
       db.Card.remove({}, function(err, cards){
-        db.Card.create(cardSeed, function(err, cards){
+        db.Card.create(newCards, function(err, cards){
           if (err) { return console.log('ERROR', err); }
           console.log("all cards:", cards);
           // process.exit();   // commented out beause seened to cause problems
