@@ -55,25 +55,39 @@ genreSeed.push({
   color_code: "091837"
 });
 
-for (i=0; i<cardSeed.length; i++) {
-  cardSeed[i].genre = genreSeed[i];
-};
-console.log("just imbedded one genreSeed into each cardSeed");
-console.log(cardSeed);
+//  this function takes in Genre with IDs, inbed one in each card object
+function imbedCard (cardSeed, genres) {
+  for (i=0; i<cardSeed.length; i++) {
+    cardSeed[i].genre = genres[i];
+  };
+  return cardSeed;
+  console.log("just imbedded one genreSeed into each cardSeed");
+}  //  function imbedCard
 
 
+
+//   this first creates genre objects with ids, then imbeds one in each card object going to DB
 db.Genre.remove({}, function(err, genres){
   db.Genre.create(genreSeed, function(err, genres){
     if (err) { return console.log('ERROR', err); }
     console.log("all genres:", genres);
     // process.exit();   // commented out beause seened to cause problems
+      var newCards = imbedCard (cardSeed, genres);
+
+      db.Card.remove({}, function(err, cards){
+        db.Card.create(cardSeed, function(err, cards){
+          if (err) { return console.log('ERROR', err); }
+          console.log("all cards:", cards);
+          // process.exit();   // commented out beause seened to cause problems
+        });  //  db.Card.create
+      });  //  db.Card.remove
   });  //  db.Genre.create
 });  //  db.Genre.remove
 
-db.Card.remove({}, function(err, cards){
-  db.Card.create(cardSeed, function(err, cards){
-    if (err) { return console.log('ERROR', err); }
-    console.log("all cards:", cards);
-    // process.exit();   // commented out beause seened to cause problems
-  });  //  db.Card.create
-});  //  db.Card.remove
+// db.Card.remove({}, function(err, cards){
+//   db.Card.create(cardSeed, function(err, cards){
+//     if (err) { return console.log('ERROR', err); }
+//     console.log("all cards:", cards);
+//     // process.exit();   // commented out beause seened to cause problems
+//   });  //  db.Card.create
+// });  //  db.Card.remove
