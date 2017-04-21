@@ -28,7 +28,7 @@ function create(req, res) {
 
 }
 
-// SHOW /api/cards
+// SHOW /api/cards/:_id
 function show(req, res) {
 
   // find one card by id and send it back as JSON
@@ -36,6 +36,27 @@ function show(req, res) {
     if(err) { console.log('error', err); }
     console.log('responding with', card);
     res.json(card);
+  });
+}
+
+// UPDATE /api/cards/:_id
+function update(req, res) {
+  // find one album by id, update it based on request body,
+  // and send it back as JSON
+  console.log('updating with data', req.body);
+  db.Card.findById(req.params.cardId, function(err, foundCard) {
+    if(err) { console.log('error', err); }
+
+    foundCard.playlistName = req.body.playlistName;
+    // foundCard.genre = req.body.genre;
+    foundCard.playlistLink = req.body.playlistLink;
+    foundCard.artistNames = req.body.artistNames;
+    foundCard.owner = req.body.owner;
+
+    foundCard.save(function(err, savedCard) {
+      if(err) { console.log('saving altered card failed'); }
+      res.json(savedCard);
+    });
   });
 }
 
@@ -55,6 +76,6 @@ module.exports = {
   index: index,
   create: create,
   show: show,
-  destroy: destroy
-//   update: update
+  destroy: destroy,
+  update: update
 };

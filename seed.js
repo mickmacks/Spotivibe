@@ -3,15 +3,6 @@
 
 var db = require("./models");
 
-// var Chill = new Genre() {
-
-//   genreName: "Chill",
-//   background: "imageURL",
-//   sound: "audioURL",
-//   color_code: "#00f0be"
-
-// }
-
 var cardSeed =[];
 cardSeed.push({
   playlistName: "Moody!",

@@ -39,8 +39,7 @@ app.get('/', function homepage (req, res) {
  app.get('/api/cards/:cardId', controllers.cardsData.show);  // url needs api/cards
  app.post('/api/cards', controllers.cardsData.create);
  app.delete('/api/cards/:cardId', controllers.cardsData.destroy);
- // app.put('/api/albums/:albumId', controllers.albums.update);
- // app.post('/api/cards/:cardId', controllers.cardEdit.update); 
+ app.put('/api/cards/:cardId', controllers.cardsData.update);
 
 
 

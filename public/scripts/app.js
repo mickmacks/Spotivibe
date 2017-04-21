@@ -1,5 +1,8 @@
 /* CLIENT-SIDE JS */
 
+var editMode = false;
+var editId = 0;
+
 $(document).ready(function() {
 
   console.log('app.js loaded!');
@@ -23,26 +26,60 @@ $(document).ready(function() {
   // catch and handle the click on an add playlist button event
   $('#activities').on('click', '#edit-button', handleEditActivityClick);
 
+  // $('#activity-form').on('click', '#edit-submit-btn', handleEditSubmitForm);
+
   $('#activity-form').submit(function(e) {
 
     e.preventDefault();
 
-    var formData = $(this).serializeArray();
-    console.log(formData);
+      if (editMode === false) {
 
-    $.post('/api/cards', formData, function(activity) {
-      console.log('card after POST', activity);
-      renderActivity(activity);  //render the server's response
+        console.log('clicked original post form');
+
+        var formData = $(this).serializeArray();
+        console.log(formData);
+
+        $.post('/api/cards', formData, function(activity) {
+          console.log('card after POST', activity);
+          renderActivity(activity);  //render the server's response
+        });
+
+        $(this).trigger("reset");
+
+      } else {
+
+        console.log('clicked edit post form');
+
+        var formData = $(this).serializeArray();
+        console.log(formData);
+
+        var $card = $(this).closest('.activity-card');
+        var $cardId = $card.data('card-id');
+
+        $.ajax({
+          method: 'PUT',
+          url: '/api/cards/' + editId,
+          data: formData,
+          success: handleCardUpdatedResponse
+        });
+
+        $(this).trigger("reset");
+
+        editMode = false;
+
+      }
+
     });
-
-    $(this).trigger("reset");
-
-  });
 
   //DELETE
   $('#activities').on('click', '#card-delete-button', handleDeleteCardClick);
 
 });
+
+
+function handleCardUpdatedResponse(data) {
+  console.log('response to update', data);
+}
 
 ////////////////////////
 // DELETE ACTIVITY CARDS
@@ -76,10 +113,14 @@ function handleDeleteCardSuccess(data) {
 
 function handleEditActivityClick(e) {
 
+  editMode = true;
+
   e.preventDefault();
 
   var $card = $(this).closest('.activity-card');
   var $cardId = $card.data('card-id');
+
+  editId = $cardId;
 
   $.ajax({
     method: 'GET',
@@ -93,19 +134,33 @@ function populateEditForm(data) {
 
   console.log(data);
 
-  console.log(data.playlistName);
-
   var $modal = $('#modal1');
 
   $modal.find('#playlistName').val("" + data.playlistName);
-  
-  $modal.find('#genreSelect').val("" + data.genre);
+  // $modal.find('#genreSelect').val("" + data.genre);
   $modal.find('#playlistLink').val("" + data.playlistLink);
   $modal.find('#artistNames').val("" + data.artistNames);
   $modal.find('#owner').val("" + data.owner);
 
+  $modal.find('#submit-btn').attr('id', 'edit-submit-btn');
+  // $modal.find('#activity-form').attr('id', 'edit-activity-form');
 
 }
+
+// function handleEditSubmitForm() {
+
+//   console.log('Clicked Submit button after Edit button');
+
+//   $('#activity-form').submit();
+
+//   // $.ajax({
+//   //   method: 'PUT',
+//   //   url: '/api/albums/' + $cardId,
+//   //   data: data,
+//   //   success: handleAlbumUpdatedResponse
+//   // });
+
+// }
 
 ////////////////////////
 // READ ACTIVITY CARDS
@@ -114,11 +169,8 @@ function populateEditForm(data) {
 // function parameter = database return object 'card'
 function renderMultipleActivities(activities) {
 
-  console.log(activities);
-
   activities.forEach(function(activity) {
     renderActivity(activity);
-    console.log(activity);
   });
 
 
@@ -134,7 +186,7 @@ function renderActivity(activity) {
 
 
           <h3 class="left-align">${activity.playlistName}</h3>
-          <h5 class="left-align">${activity.genre.genreName}</h5>
+          <h5 class="left-align">${activity.genre}</h5>
 
         </div>
 
