@@ -3,44 +3,41 @@
 
 var db = require("./models");
 
+// var Chill = new Genre() {
+
+//   genreName: "Chill",
+//   background: "imageURL",
+//   sound: "audioURL",
+//   color_code: "#00f0be"
+
+// }
+
 var cardSeed =[];
 cardSeed.push({
   playlistName: "Moody!",
   playlistLink: "URL.dude",
-  genre: {
-    genreName: "OREGAMI",
-    background: "./public/imgs/background3.jpg",
-    sound: "",
-    color_code: "091837"
-  },
+  // genre: Chill,
   artistNames: ["Tivo", "Doug"],
   owner: "Mike"
 });
 cardSeed.push({
   playlistName: "Smoooothe",
   playlistLink: "URL.dude2",
-  genre: {
-    genreName: "jazz",
-    background: "./public/imgs/background2.jpg",
-    sound: "",
-    color_code: "ABCDEF"
-  },
+  // genre: Chill,
   artistNames: ["Blue Lights"],
   owner: "Robert Redford"
 });
 cardSeed.push({
   playlistName: "Chill",
   playlistLink: "URL.dude3",
-  genre: {
-    genreName: "wild",
-    background: "./public/imgs/background1.jpg",
-    sound: "",
-    color_code: "012345"
-  },
+  // genre: Chill,
   artistNames: ["The XX"],
   owner: "DJ Khalid"
 });
+
 // var genreSeed =[];
+
+// genreSeed.push(Chill);
 // genreSeed.push({
 //   genreName: "wild",
 //   background: "./public/imgs/background1.jpg",
