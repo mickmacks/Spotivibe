@@ -46,39 +46,26 @@ genreSeed.push({
   colors: "#091837"
 });
 
-//  this function takes in Genre with IDs, inbed one in each card object
+//  this function takes in Genre with IDs, embed one in each card object
 function embedCard (cardSeed, genres) {
   for (i=0; i<cardSeed.length; i++) {
     cardSeed[i].genre = genres[i];
   };
   return cardSeed;
   console.log("just embedded one genreSeed into each cardSeed");
-}  //  function embedCard
-
-
+}  
 
 //   this first creates genre objects with ids, then embeds one in each card object going to DB
 db.Genre.remove({}, function(err, genres){
   db.Genre.create(genreSeed, function(err, genres){
     if (err) { return console.log('ERROR', err); }
-    // console.log("all genres:", genres);
-    // process.exit();   // commented out beause seened to cause problems
       var newCards = embedCard (cardSeed, genres);
 
       db.Card.remove({}, function(err, cards){
         db.Card.create(newCards, function(err, cards){
           if (err) { return console.log('ERROR', err); }
           console.log("all cards:", cards);
-          // process.exit();   // commented out beause seened to cause problems
-        });  //  db.Card.create
-      });  //  db.Card.remove
-  });  //  db.Genre.create
-});  //  db.Genre.remove
-
-// db.Card.remove({}, function(err, cards){
-//   db.Card.create(cardSeed, function(err, cards){
-//     if (err) { return console.log('ERROR', err); }
-//     console.log("all cards:", cards);
-//     // process.exit();   // commented out beause seened to cause problems
-//   });  //  db.Card.create
-// });  //  db.Card.remove
+        }); 
+      }); 
+  });
+});

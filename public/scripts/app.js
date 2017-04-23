@@ -54,7 +54,7 @@ $(document).ready(function() {
 
         console.log('clicked edit post form');
 
-        var formData = $(this).serializeArray();
+        var formData = $(this).serialize();
         console.log(formData);
 
         var $card = $(this).closest('.activity-card');
@@ -180,12 +180,6 @@ function renderMultipleActivities(activities) {
 
 function renderActivity(activity) {
 
-  var activityImage = activity.genre.imgLink;
-  // var activityAudio = activity.genre.audLink;
-
-  console.log(activityImage);
-  // console.log(activityAudio);
-
   var activityHtml = (`
 
       <div data-card-id="${activity._id}" class="activity-card" class="col s12 m4">
@@ -193,7 +187,7 @@ function renderActivity(activity) {
         <div class="card-class">
 
           <h3 class="cardPlaylistName left-align">${activity.playlistName}</h3>
-          <h5 class="cardGenre left-align">${activity.genre.name}</h5>
+          <h5 class="cardGenre left-align">${activity.genre}</h5>
 
         </div>
 
