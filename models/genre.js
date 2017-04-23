@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 // var Card = require('./card');
 
 var GenreSchema = new Schema({
-  genreName: String,
-  background: String,
-  sound: String,
-  color_code: String
+  name: String,
+  imgLink: String,
+  audLink: String,
+  colors: [String]
 });
 
 var Genre = mongoose.model('Genre', GenreSchema);

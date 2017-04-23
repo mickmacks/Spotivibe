@@ -28,42 +28,42 @@ cardSeed.push({
 
 var genreSeed =[];
 genreSeed.push({
-  genreName: "wild",
-  background: "./public/imgs/background1.jpg",
-  sound: "",
-  color_code: "012345"
+  name: "Chill",
+  imgLink: "/imgs/background1.jpg",
+  audLink: "/aud/chill.mp3",
+  colors: "#012345"
 });
 genreSeed.push({
-  genreName: "jazz",
-  background: "./public/imgs/background2.jpg",
-  sound: "",
-  color_code: "ABCDEF"
+  name: "Metal",
+  imgLink: "/imgs/background2.jpg",
+  audLink: "/aud/metal.mp3",
+  colors: "#ABCDEF"
 });
 genreSeed.push({
-  genreName: "OREGAMI",
-  background: "./public/imgs/background3.jpg",
-  sound: "",
-  color_code: "091837"
+  name: "HipHop",
+  imgLink: "/imgs/background3.jpg",
+  audLink: "/aud/hiphop.mp3",
+  colors: "#091837"
 });
 
 //  this function takes in Genre with IDs, inbed one in each card object
-function imbedCard (cardSeed, genres) {
+function embedCard (cardSeed, genres) {
   for (i=0; i<cardSeed.length; i++) {
     cardSeed[i].genre = genres[i];
   };
   return cardSeed;
-  console.log("just imbedded one genreSeed into each cardSeed");
-}  //  function imbedCard
+  console.log("just embedded one genreSeed into each cardSeed");
+}  //  function embedCard
 
 
 
-//   this first creates genre objects with ids, then imbeds one in each card object going to DB
+//   this first creates genre objects with ids, then embeds one in each card object going to DB
 db.Genre.remove({}, function(err, genres){
   db.Genre.create(genreSeed, function(err, genres){
     if (err) { return console.log('ERROR', err); }
     // console.log("all genres:", genres);
     // process.exit();   // commented out beause seened to cause problems
-      var newCards = imbedCard (cardSeed, genres);
+      var newCards = embedCard (cardSeed, genres);
 
       db.Card.remove({}, function(err, cards){
         db.Card.create(newCards, function(err, cards){

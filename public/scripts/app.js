@@ -140,7 +140,7 @@ function populateEditForm(data) {
   var $modal = $('#modal1');
 
   $modal.find('#playlistName').val("" + data.playlistName);
-  $modal.find('#genreSelect').val("" + data.genre.genreName);
+  $modal.find('#genreSelect').val("" + data.genre.name);
   $modal.find('#playlistLink').val("" + data.playlistLink);
   $modal.find('#artistNames').val("" + data.artistNames);
   $modal.find('#owner').val("" + data.owner);
@@ -157,7 +157,7 @@ function handleCardUpdatedResponse(data) {
 
   var edittedCard = $('#activities').find("[data-card-id='" + editId + "']");
   edittedCard.find('.cardPlaylistName').html(data.playlistName);
-  edittedCard.find('.cardGenre').html(data.genre.genreName);
+  edittedCard.find('.cardGenre').html(data.genre.name);
   edittedCard.find('.cardArtists').html(data.artistNames);
   edittedCard.find('.cardOwner').html(data.owner);
 
@@ -180,6 +180,12 @@ function renderMultipleActivities(activities) {
 
 function renderActivity(activity) {
 
+  var activityImage = activity.genre.imgLink;
+  // var activityAudio = activity.genre.audLink;
+
+  console.log(activityImage);
+  // console.log(activityAudio);
+
   var activityHtml = (`
 
       <div data-card-id="${activity._id}" class="activity-card" class="col s12 m4">
@@ -187,7 +193,7 @@ function renderActivity(activity) {
         <div class="card-class">
 
           <h3 class="cardPlaylistName left-align">${activity.playlistName}</h3>
-          <h5 class="cardGenre left-align">${activity.genre.genreName}</h5>
+          <h5 class="cardGenre left-align">${activity.genre.name}</h5>
 
         </div>
 
@@ -205,6 +211,9 @@ function renderActivity(activity) {
             
             <a href="#modal1" id="edit-button"><h6>EDIT</h6></a> 
             <a href="#" id="card-delete-button"><h6>DELETE</h6></a> 
+
+            <img src=${activity.genre.imgLink} class='hide'>
+            <audio src=${activity.genre.audLink}>
 
             </div>
 
@@ -227,6 +236,7 @@ function renderActivity(activity) {
 function handlePlayButtonClick(e) {
 
   console.log('Hello');
+  console.log(this.closest('.activity-card'));
 
 
 // check to see what genre was selected
