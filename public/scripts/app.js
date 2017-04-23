@@ -26,8 +26,12 @@ $(document).ready(function() {
   // catch and handle the click on an add playlist button event
   $('#activities').on('click', '#edit-button', handleEditActivityClick);
 
+  // PLAY
+  // catch and handle the click on a play playlist button event
   $('#activities').on('click', '.play-icon', handlePlayButtonClick);
 
+  // SUBMIT / SAVE
+  // catch and handle the click on an add/save playlist submit button event
   $('#activity-form').submit(function(e) {
 
     e.preventDefault();
@@ -63,6 +67,8 @@ $(document).ready(function() {
           success: handleCardUpdatedResponse
         });
 
+
+
         $(this).trigger("reset");
 
         editMode = false;
@@ -76,11 +82,6 @@ $(document).ready(function() {
 
 });
 
-
-function handleCardUpdatedResponse(data) {
-  console.log('response to update', data);
-}
-
 ////////////////////////
 // DELETE ACTIVITY CARDS
 ////////////////////////
@@ -90,11 +91,11 @@ function handleDeleteCardClick(e) {
   var id = $(this).closest('.activity-card').data('card-id');  //  '.data('card-id')' is same as '<div data-card-id=' below.
   console.log(id);
   // $('div[data-album-id=' + deletedAlbumId + ']').remove();
- $.ajax({
+  $.ajax({
    url: '/api/cards/' + id,
    method: 'DELETE',
    success: handleDeleteCardSuccess
- });
+  });
 }  //  function handleDeleteCardClick
 
 // callback after DELETE /api/albums/:id
@@ -110,6 +111,8 @@ function handleDeleteCardSuccess(data) {
 ////////////////////////
 // EDIT ACTIVITY CARDS
 ////////////////////////
+
+// AFTER EDIT BUTTON CLICK
 
 function handleEditActivityClick(e) {
 
@@ -137,7 +140,7 @@ function populateEditForm(data) {
   var $modal = $('#modal1');
 
   $modal.find('#playlistName').val("" + data.playlistName);
-  // $modal.find('#genreSelect').val("" + data.genre);
+  $modal.find('#genreSelect').val("" + data.genre.genreName);
   $modal.find('#playlistLink').val("" + data.playlistLink);
   $modal.find('#artistNames').val("" + data.artistNames);
   $modal.find('#owner').val("" + data.owner);
@@ -147,20 +150,19 @@ function populateEditForm(data) {
 
 }
 
-// function handleEditSubmitForm() {
+// AFTER SAVE CHANGES CLICK
 
-//   console.log('Clicked Submit button after Edit button');
+function handleCardUpdatedResponse(data) {
+  console.log('response to update', data);
 
-//   $('#activity-form').submit();
+  var edittedCard = $('#activities').find("[data-card-id='" + editId + "']");
+  edittedCard.find('.cardPlaylistName').html(data.playlistName);
+  edittedCard.find('.cardGenre').html(data.genre.genreName);
+  edittedCard.find('.cardArtists').html(data.artistNames);
+  edittedCard.find('.cardOwner').html(data.owner);
 
-//   // $.ajax({
-//   //   method: 'PUT',
-//   //   url: '/api/albums/' + $cardId,
-//   //   data: data,
-//   //   success: handleAlbumUpdatedResponse
-//   // });
+}
 
-// }
 
 ////////////////////////
 // READ ACTIVITY CARDS
@@ -184,9 +186,8 @@ function renderActivity(activity) {
 
         <div class="card-class">
 
-
-          <h3 class="left-align">${activity.playlistName}</h3>
-          <h5 class="left-align">${activity.genre}</h5>
+          <h3 class="cardPlaylistName left-align">${activity.playlistName}</h3>
+          <h5 class="cardGenre left-align">${activity.genre.genreName}</h5>
 
         </div>
 
@@ -195,10 +196,10 @@ function renderActivity(activity) {
         <div class="card-data">
 
             <h6 class="left-align">Songs By</h6>
-            <h4 class="left-align">${activity.artistNames}</h4>
+            <h4 class="cardArtists left-align">${activity.artistNames}</h4>
 
             <h6 class="left-align">Created By</h6>
-            <h4 class="left-align">${activity.owner}</h4>
+            <h4 class="cardOwner left-align">${activity.owner}</h4>
             
             <div class="col s12 center">
             
