@@ -14,8 +14,21 @@ $(document).ready(function() {
     success: renderMultipleActivities
   });
 
+  // trying to get genre data
+  $.ajax({
+    method: 'GET',
+    url: '/api/genres',
+    success: tryGetGenre
+  });
+
+  function tryGetGenre(data) {
+    console.log("genre data from app.js");
+    console.log(data);
+  }
+
+
   // MODAL FUNCTIONALITY
-  //initialize all modals           
+  //initialize all modals
   $('.modal').modal();
   //or by click on trigger
   $('.trigger-modal').modal();
@@ -119,6 +132,10 @@ function handleEditActivityClick(e) {
 
   var $card = $(this).closest('.activity-card');
   var $cardId = $card.data('card-id');
+  //  here i am trying to find data from genre table - mjl
+  // var $activitiesContainer = $(this).closest('.activities');
+  // var $genreFind = $activitiesContainer.data('.activities');
+  // var $genreFind = db.genres.find();
 
   editId = $cardId;
 
@@ -128,7 +145,21 @@ function handleEditActivityClick(e) {
     success: populateEditForm
   });
 
+  // now try to get all genre data
+  $.ajax({
+    method: 'GET',
+    url: '/api/genres/' ,
+    success: printGenres
+  });
+
 }
+
+// now try to get all genre data
+// function printGenres(data) {
+//   console.log("all genre data?");
+//   console.log(data);
+// }
+
 
 function populateEditForm(data) {
 
@@ -144,6 +175,15 @@ function populateEditForm(data) {
 
   $modal.find('#submit-btn').attr('id', 'edit-submit-btn');
   // $modal.find('#activity-form').attr('id', 'edit-activity-form');
+
+  // find genre name
+  console.log("playlist name is: ")
+  console.log(data.playlistName);
+  var genreNameTest = data.genre.genreName;
+  console.log("the genre is: ");
+  console.log(genreNameTest);
+  console.log("all genre info is:");
+  console.log($genreFind);
 
 }
 
@@ -199,11 +239,11 @@ function renderActivity(activity) {
 
             <h6 class="left-align">Created By</h6>
             <h4 class="left-align">${activity.owner}</h4>
-            
+
             <div class="col s12 center">
-            
-            <a href="#modal1" id="edit-button"><h6>EDIT</h6></a> 
-            <a href="#" id="card-delete-button"><h6>DELETE</h6></a> 
+
+            <a href="#modal1" id="edit-button"><h6>EDIT</h6></a>
+            <a href="#" id="card-delete-button"><h6>DELETE</h6></a>
 
             </div>
 
@@ -217,7 +257,7 @@ function renderActivity(activity) {
 
 }
 
-  
+
 ////////////////////////
 // PLAY BUTTON
 ////////////////////////
@@ -252,4 +292,3 @@ function handlePlayButtonClick(e) {
   // scroll to top
 
 }
-
