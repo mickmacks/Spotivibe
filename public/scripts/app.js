@@ -3,6 +3,8 @@
 var editMode = false;
 var editId = 0;
 
+var audio;
+
 $(document).ready(function() {
 
   console.log('app.js loaded!');
@@ -223,13 +225,28 @@ function renderActivity(activity) {
 
   
 ////////////////////////
-// PLAY BUTTON
+// PLAY & PAUSE BUTTONS
 ////////////////////////
-
 
 function handlePlayButtonClick(e) {
 
+  // PAUSE CURRENT TRACK
+
+  // var tracks = document.getElementsByTagName('audio');
+
+  // console.log(tracks);
+
+  // for (var i = 0; i < tracks.length; i++) {
+  //   var currTrack = tracks[i];
+  //   var currTrackSrc = currTrack.src;
+
+  //   var currAudio = new Audio(`` + currTrackSrc);
+  //   currAudio.pause();
+  // };
+
   console.log(this.closest('.activity-card'));
+
+  // HEADER IMAGE
 
   var clickedCard = this.closest('.activity-card');
   var clickedCardImg = clickedCard.getElementsByTagName('img')[0];
@@ -238,35 +255,29 @@ function handlePlayButtonClick(e) {
   var headerImage = document.getElementById('index-banner');
   headerImage.style.backgroundImage = `url('` + clickedCardSrc + `')`;
 
+  // AUDIO
+
   var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
   var clickedCardAudioTrack = clickedCardAudio.src;
   
-  var audio = new Audio(`` + clickedCardAudioTrack);
+  audio = new Audio(`` + clickedCardAudioTrack);
+  audio.pause();
   audio.play();
 
+  
 
-// check to see what genre was selected
+}
 
-// if genre was chill
+// PAUSE AUDIO
 
-  // change the background image
-  // play different audio
-  // animate something
-  // scroll to top
+function handlePauseButtonClick(e) {
 
-// if genre was metal
-
-  // change the background image
-  // play different audio
-  // animate something
-  // scroll to top
-
-// if genre was hiphop
-
-  // change the background image
-  // play different audio
-  // animate something
-  // scroll to top
+  var clickedCard = this.closest('.activity-card');
+  var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
+  var clickedCardAudioTrack = clickedCardAudio.src;
+  
+  audio = new Audio(`` + clickedCardAudioTrack);
+  audio.pause();
 
 }
 
