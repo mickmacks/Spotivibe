@@ -3,7 +3,7 @@
 var editMode = false;
 var editId = 0;
 
-var audio;
+var currAudio;
 
 $(document).ready(function() {
 
@@ -229,6 +229,8 @@ function renderActivity(activity) {
 
 function handlePlayButtonClick(e) {
 
+
+
   console.log(this.closest('.activity-card'));
 
   // HEADER IMAGE
@@ -240,13 +242,28 @@ function handlePlayButtonClick(e) {
   var headerImage = document.getElementById('index-banner');
   headerImage.style.backgroundImage = `url('` + clickedCardSrc + `')`;
 
+
+
   // AUDIO
 
   var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
   var clickedCardAudioTrack = clickedCardAudio.src;
+
+  var cardIcon = clickedCard.getElementsByClassName('track-icon')[0];
   
-  audio = new Audio(`` + clickedCardAudioTrack);
-  audio.play();
+  var audio = new Audio(`` + clickedCardAudioTrack);
+
+  currAudio = audio;
+
+  if (cardIcon.innerHTML === '<i class="material-icons medium play-icon">pause</i>') {
+    currAudio.pause();
+    cardIcon.innerHTML = '<i class="material-icons medium play-icon">play_arrow</i>';
+  } else {
+    audio.play();
+    cardIcon.innerHTML = '<i class="material-icons medium play-icon">pause</i>';
+  };
+
+  // SCROLL TO HEADER
 
   $('html, body').animate({ scrollTop: 0 }, 'fast');
 
