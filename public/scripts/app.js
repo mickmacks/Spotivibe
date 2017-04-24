@@ -187,7 +187,7 @@ function renderActivity(activity) {
         <div class="card-class">
 
           <h3 class="cardPlaylistName left-align">${activity.playlistName}</h3>
-          <h5 class="cardGenre left-align">${activity.genre}</h5>
+          <h5 class="cardGenre left-align">${activity.genre.name}</h5>
 
         </div>
 
@@ -206,12 +206,12 @@ function renderActivity(activity) {
             <a href="#modal1" id="edit-button"><h6>EDIT</h6></a> 
             <a href="#" id="card-delete-button"><h6>DELETE</h6></a> 
 
-            <img src=${activity.genre.imgLink} class='hide'>
-            <audio src=${activity.genre.audLink}>
-
             </div>
 
         </div>
+
+        <img src=${activity.genre.imgLink} class='hide card-img'>
+        <audio src=${activity.genre.audLink} class='hide card-audio'>
 
       </div>
 
@@ -229,8 +229,20 @@ function renderActivity(activity) {
 
 function handlePlayButtonClick(e) {
 
-  console.log('Hello');
   console.log(this.closest('.activity-card'));
+
+  var clickedCard = this.closest('.activity-card');
+  var clickedCardImg = clickedCard.getElementsByTagName('img')[0];
+  var clickedCardSrc = clickedCardImg.src;
+
+  var headerImage = document.getElementById('index-banner');
+  headerImage.style.backgroundImage = `url('` + clickedCardSrc + `')`;
+
+  var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
+  var clickedCardAudioTrack = clickedCardAudio.src;
+  
+  var audio = new Audio(`` + clickedCardAudioTrack);
+  audio.play();
 
 
 // check to see what genre was selected
