@@ -70,7 +70,6 @@ $(document).ready(function() {
         });
 
 
-
         $(this).trigger("reset");
 
         editMode = false;
@@ -230,20 +229,6 @@ function renderActivity(activity) {
 
 function handlePlayButtonClick(e) {
 
-  // PAUSE CURRENT TRACK
-
-  // var tracks = document.getElementsByTagName('audio');
-
-  // console.log(tracks);
-
-  // for (var i = 0; i < tracks.length; i++) {
-  //   var currTrack = tracks[i];
-  //   var currTrackSrc = currTrack.src;
-
-  //   var currAudio = new Audio(`` + currTrackSrc);
-  //   currAudio.pause();
-  // };
-
   console.log(this.closest('.activity-card'));
 
   // HEADER IMAGE
@@ -261,23 +246,22 @@ function handlePlayButtonClick(e) {
   var clickedCardAudioTrack = clickedCardAudio.src;
   
   audio = new Audio(`` + clickedCardAudioTrack);
-  audio.pause();
   audio.play();
 
-  
+  $('html, body').animate({ scrollTop: 0 }, 'fast');
 
 }
 
-// PAUSE AUDIO
+// // PAUSE AUDIO
 
-function handlePauseButtonClick(e) {
+// function handlePauseButtonClick(e) {
 
-  var clickedCard = this.closest('.activity-card');
-  var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
-  var clickedCardAudioTrack = clickedCardAudio.src;
+//   var clickedCard = this.closest('.activity-card');
+//   var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
+//   var clickedCardAudioTrack = clickedCardAudio.src;
   
-  audio = new Audio(`` + clickedCardAudioTrack);
-  audio.pause();
+//   audio = new Audio(`` + clickedCardAudioTrack);
+//   audio.pause();
 
-}
+// }
 

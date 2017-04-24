@@ -48,7 +48,7 @@ function update(req, res) {
     if(err) { console.log('error', err); }
 
     foundCard.playlistName = req.body.playlistName;
-    foundCard.genre = req.body.genre;
+    foundCard.genre.name = req.body.genre;
     foundCard.playlistLink = req.body.playlistLink;
     foundCard.artistNames = req.body.artistNames;
     foundCard.owner = req.body.owner;
