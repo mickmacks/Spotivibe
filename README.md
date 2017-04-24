@@ -26,10 +26,6 @@ npm install --save mongoose express body-parser
 
 ```
 
-## Deployment
-
-
-
 ## Built With
 
 * [Heroku](http://www.dropwizard.io/1.0.2/docs/) - The web hosting service used
@@ -38,6 +34,24 @@ npm install --save mongoose express body-parser
 ## Contributing
 
 Please let us know if you have any questions or ideas for updates. You can reach us at example@site.com
+
+## Bugs
+
+1. Playing a new playlist doesn't pause the currently playing one.
+2. Pausing the current playlist doesn't work.
+3. Adding a new activity doesn't link image or audio file
+4. When opening a form for the second time, the input title and input values overlap.
+5. Pausing scrolls to top of page
+
+## Future Goals
+
+1. Figure out image animations or switch to video loops.
+2. Connect spotify to activity cards.
+3. Add search/sort/filter functionality to cards.
+4. Use icons or color to separate genres.
+5. Make edit and delete buttons more clear.
+6. More instructional copy for how the site works, and what you get out of it.
+7. Consider legibility of fonts, font sizes, font colors
 
 ## Authors
 
