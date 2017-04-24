@@ -184,7 +184,7 @@ function renderActivity(activity) {
 
   var activityHtml = (`
 
-      <div data-card-id="${activity._id}" class="activity-card" class="col s12 m4">
+      <div data-card-id="${activity._id}" class="col s12 m6 l4 activity-card">
 
         <div class="card-class">
 
@@ -193,7 +193,7 @@ function renderActivity(activity) {
 
         </div>
 
-        <div><i class="material-icons medium play-icon">play_arrow</i></div>
+        <div class="track-icon"><i class="material-icons medium play-icon">play_arrow</i></div>
 
         <div class="card-data">
 
@@ -203,7 +203,7 @@ function renderActivity(activity) {
             <h6 class="left-align">Created By</h6>
             <h4 class="cardOwner left-align">${activity.owner}</h4>
             
-            <div class="col s12 center">
+            <div class="center">
             
             <a href="#modal1" id="edit-button"><h6>EDIT</h6></a> 
             <a href="#" id="card-delete-button"><h6>DELETE</h6></a> 

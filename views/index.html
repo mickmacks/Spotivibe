@@ -46,26 +46,30 @@
     <div id="index-banner">
         <div class="container">
             <br><br>
-            	<h1 class="header center">Spotivibe</h1>
-            <div class="row center">
-            	<h4 class="header col s12 light">Set the tune. Set the mood. Instantly.</h5>
+            	<h1 class="header center col s12 m12 l12">Spotivibe</h1>
+            <div class="center">
+            	<h4 class="col s12 m12 l12">Set the tune. Set the mood. Instantly.</h4>
             </div>
             <br><br>
+
+            <section id="section05" class="demo">
+            <a href="#"><span></span><h5>Scroll</h5></a>
+            </section>
         </div>
     </div>
 
 
-    <section class="container">
+    <section>
       <div class="row" id="activities-container">
     		<div class='header center'>
     			 <h2>Select an Activity</h2>
     		</div>
 
-        <div id="activities">
+        <div id="activities" class='container'>
           
           <div class="row" id="activity-cards-gallery">
 
-            <div id="create-card" class="valign-wrapper center">
+            <div id="create-card" class="col s12 m6 l4 valign-wrapper center">
 
              <a class="waves-effect waves-light" href="#modal1"><i id="add-button" class="material-icons large">add</i></a>
               <h6>Create Activity</h6>
@@ -83,57 +87,61 @@
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h2>Create New Activity</h2>
 
-        <div class="row">
-          <form id="activity-form" class="col s12">
+      <div id="modal-title" class="row">
+        <h3>Create New Activity</h3>
+      </div>
 
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="playlistName" placeholder="Choose a name…" value="" type="text" name="playlistName">
-                <label for="playlistName">Playlist Name</label>
-              </div>
+      <div class="row">
+        <form id="activity-form" class="container row">
+
+          <div class="row">
+            <div class="input-field">
+              <input id="playlistName" placeholder="Choose a name…" value="" type="text" name="playlistName">
+              <label for="playlistName">Playlist Name</label>
             </div>
+          </div>
+        
+          <div class="input-field">
+            <select id="genreSelect" name="genre.name">
+              <option value="" disabled selected>Choose A Genre…</option>
+              <option value="Chill">Chill</option>
+              <option value="Metal">Metal</option>
+              <option value="HipHop">HipHop</option>
+            </select>
+            <label>Genre</label>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <input id="playlistLink" placeholder="Add your spotify playlist URI…" value="" type="text" class="validate" name="playlistLink">
+              <label for="playlistLink">Spotify Playlist URI…</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <input id="artistNames" placeholder="Artist names…" value="" type="text" class="validate" name="artistNames">
+              <label for="artistNames">Songs By…</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <input id="owner" placeholder="Enter your name…" value="" type="text" class="validate" name="owner">
+              <label for="owner">Created By…</label>
+            </div>
+          </div>
           
-            <div class="input-field col s12">
-              <select id="genreSelect" name="genre.name">
-                <option value="" disabled selected>Choose A Genre…</option>
-                <option value="Chill">Chill</option>
-                <option value="Metal">Metal</option>
-                <option value="HipHop">HipHop</option>
-              </select>
-              <label>Genre</label>
-            </div>
-
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="playlistLink" placeholder="Add your spotify playlist URI…" value="" type="text" class="validate" name="playlistLink">
-                <label for="playlistLink">Spotify Playlist URI…</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="artistNames" placeholder="Artist names…" value="" type="text" class="validate" name="artistNames">
-                <label for="artistNames">Songs By…</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="owner" placeholder="Enter your name…" value="" type="text" class="validate" name="owner">
-                <label for="owner">Created By…</label>
-              </div>
-            </div>
-            
-          </form>
-        </div>
+        </form>
+      </div>
 
     </div>
-    <div class="row">
+
+    <div id="form-buttons" class="row center">
       <button id="cancel-btn" class="waves-effect blue-grey lighten-3 waves-white btn-flat">CANCEL</button>
 
-      <button id="submit-btn" type="submit" form="activity-form" class="modal-action modal-close teal waves-effect waves-teal btn-flat">SAVE</button>
+      <button id="submit-btn" type="submit" form="activity-form" class="modal-action modal-close teal waves-effect waves-teal btn-flat">SAVE CHANGES</button>
 
     </div>
   </div>
@@ -146,12 +154,12 @@
 
   <footer>
     <div class="container page-footer grey darken-4 center">
-      <div class="row">
-        <div class="col s8 offset-s2">
+      <div class="col s4 m4 l4 offset-m2 row center">
+        
           <h5 class="white-text">Want to Know More?</h5>
-          <p class="grey-text text-lighten-4">To find out more about inde sermone vario sex illa a Dipylo stadia confecimus. Nam si beatus umquam fuisset, beatam vitam usque ad illum a Cyro extructum rogum pertulisset. Hoc ne statuam quidem dicturam pater aiebat, si loqui posset. Tu enim ista lenius, hic Stoicorum more nos vexat. Nunc omni virtuti vitium contrario nomine opponitur. Pauca mutat vel plura sane; Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Nunc haec primum fortasse audientis servire debemus. Sit hoc ultimum.</p>
+          <p class="grey-text text-lighten-4">To find out more about inde sermone vario sex illa a Dipylo stadia confecimus. Nam si beatus umquam fuisset, beatam vitam usque ad illum a Cyro extructum rogum pertulisset. Hoc ne statuam quidem dicturam pater aiebat, si loqui posset. Tu enim ista lenius, hic Stoicorum more nos vexat. Nunc omni virtuti vitium contrario nomine opponitur. Pauca mutat vel plura sane; Potius inflammat, ut coercendi magis quam dedocendi esse videantur.</p>
 
-        </div>
+        
       </div>
     </div>
 
