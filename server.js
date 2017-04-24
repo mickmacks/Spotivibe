@@ -41,6 +41,9 @@ app.get('/', function homepage (req, res) {
  app.delete('/api/cards/:cardId', controllers.cardsData.destroy);
  app.put('/api/cards/:cardId', controllers.cardsData.update);
 
+ // trying to offer all genre data
+ app.get('/api/genres', controllers.genresData.index);  // url needs api/cards
+
 
 
 /**********
