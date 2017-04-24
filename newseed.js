@@ -26,10 +26,18 @@ var cardsList = [
   {
 	  playlistName: 'Late Night',
 	  playlistLink: 'api/spotify/userid/uri4',
-	  genre: 'Chill',
+	  genre: 'HipHop',
 	  artistNames: ['Arcade Fire', 'C418', '+33…'],
 	  owner: 'Tighe C.'
   },
+  {
+    playlistName: 'Pot Luck',
+    playlistLink: 'api/spotify/userid/uri5',
+    genre: 'HipHop',
+    artistNames: ['Lupe Fiasco', 'A$AP Rocky', '+20…'],
+    owner: 'Nate W.'
+  }
+
 
 ];
 

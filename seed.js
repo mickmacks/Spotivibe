@@ -63,8 +63,10 @@ genreSeed.push({
 genreSeed.push({
   name: "Chill",
   imgLink: "/imgs/background1.jpg",
+
   audLink: "/aud/chill.mp3",
   colors: "#c0ffee"
+
 });
 genreSeed.push({
   name: "HipHop",

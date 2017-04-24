@@ -9,7 +9,7 @@ var db = require('../models');
 function index(req, res) {
   // send back all albums as JSON
   db.Card.find({}, function(err, allCards) {
-    console.log("all cards", allCards);
+    // console.log("all cards", allCards);   // now trying to print all genres instead
     res.json(allCards);
   });
 } //    db.Card.find
@@ -34,7 +34,7 @@ function show(req, res) {
   // find one card by id and send it back as JSON
   db.Card.findById(req.params.cardId, function(err, card) {
     if(err) { console.log('error', err); }
-    console.log('responding with', card);
+    console.log('responding with (cardDataController)', card);
     res.json(card);
   });
 }
