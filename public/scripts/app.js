@@ -17,7 +17,7 @@ $(document).ready(function() {
   });
 
   // MODAL FUNCTIONALITY
-  //initialize all modals           
+  //initialize all modals
   $('.modal').modal();
   //or by click on trigger
   $('.trigger-modal').modal();
@@ -151,6 +151,19 @@ function populateEditForm(data) {
 
 }
 
+  // now try to get all genre data
+  $.ajax({
+    method: 'GET',
+    url: '/api/genres/' ,
+    success: printGenres
+  });
+
+  //   now try to get all genre data
+  function printGenres(data) {
+    console.log("all genre data? from app.js/Edit");
+    console.log(data);
+  }
+
 // AFTER SAVE CHANGES CLICK
 
 function handleCardUpdatedResponse(data) {
@@ -201,11 +214,11 @@ function renderActivity(activity) {
 
             <h6 class="left-align">Created By</h6>
             <h4 class="cardOwner left-align">${activity.owner}</h4>
-            
+
             <div class="center">
-            
-            <a href="#modal1" id="edit-button"><h6>EDIT</h6></a> 
-            <a href="#" id="card-delete-button"><h6>DELETE</h6></a> 
+
+            <a href="#modal1" id="edit-button"><h6>EDIT</h6></a>
+            <a href="#" id="card-delete-button"><h6>DELETE</h6></a>
 
             </div>
 
@@ -222,7 +235,7 @@ function renderActivity(activity) {
 
 }
 
-  
+
 ////////////////////////
 // PLAY & PAUSE BUTTONS
 ////////////////////////
@@ -244,7 +257,7 @@ function handlePlayButtonClick(e) {
 
   var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
   var clickedCardAudioTrack = clickedCardAudio.src;
-  
+
   audio = new Audio(`` + clickedCardAudioTrack);
   audio.play();
 
@@ -259,10 +272,8 @@ function handlePlayButtonClick(e) {
 //   var clickedCard = this.closest('.activity-card');
 //   var clickedCardAudio = clickedCard.getElementsByTagName('audio')[0];
 //   var clickedCardAudioTrack = clickedCardAudio.src;
-  
+
 //   audio = new Audio(`` + clickedCardAudioTrack);
 //   audio.pause();
 
 // }
-
-
