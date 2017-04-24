@@ -5,14 +5,14 @@
 var db = require('../models');
 
 
-// GET /api/cards
+// GET /api/genres   from server.js
 function index(req, res) {
   // send back all genres as JSON
   db.Genre.find({}, function(err, allGenres) {
-    console.log("all genres", allGenres);
-    res.json(allGenres);
-  });
-} //    db.Card.find
+    console.log("all genres (from controller) ", allGenres);
+    return res.json(allGenres);  // need 'return'
+  });  //    db.Card.find
+} //  function index
 
 // CREATE /api/cards
 // function create(req, res) {

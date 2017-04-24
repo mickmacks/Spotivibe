@@ -50,11 +50,12 @@ $(document).ready(function() {
         console.log('clicked original post form');
 
         var formData = $(this).serializeArray();
+        console.log("app.js/edit/serializeArray")
         console.log(formData);
 
         $.post('/api/cards', formData, function(activity) {
           console.log('card after POST', activity);
-          renderActivity(activity);  //render the server's response
+          renderActivityEdit(activity);  //render the server's response
         });
 
         $(this).trigger("reset");
@@ -64,7 +65,8 @@ $(document).ready(function() {
         console.log('clicked edit post form');
 
         var formData = $(this).serializeArray();
-        console.log(formData);
+        console.log("from app.js/edit");
+        console.log("formData");
 
         var $card = $(this).closest('.activity-card');
         var $cardId = $card.data('card-id');
@@ -125,6 +127,7 @@ function handleDeleteCardSuccess(data) {
 ////////////////////////
 
 function handleEditActivityClick(e) {
+  console.log("just clicked Edit button");
 
   editMode = true;
 
@@ -145,24 +148,41 @@ function handleEditActivityClick(e) {
     success: populateEditForm
   });
 
+  // copying formData from example in edit/$.post
+  // var formData = $(this).serializeArray();
+  // console.log(formData);
+
+  $.get('/api/genres',  function(activity) {
+  // $.get('/api/genres', formData, function(activity) {
+    console.log('all genre data from app.js/edit ', activity);
+    renderActivityEdit(activity);  //render the server's response
+  });
+
   // now try to get all genre data
   $.ajax({
     method: 'GET',
     url: '/api/genres/' ,
     success: printGenres
   });
-
 }
 
 // now try to get all genre data
-// function printGenres(data) {
-//   console.log("all genre data?");
-//   console.log(data);
-// }
+function printGenres(data) {
+  console.log("all genre data? from app.js/Edit");
+  console.log(data);
+  // find genre name
+  // console.log("playlist name is: ")
+  // console.log(data.playlistName);
+  // var genreNameTest = data.genre.genreName;
+  // console.log("the genre is: ");
+  // console.log(genreNameTest);
+  // console.log("all genre info is:");
+  // console.log($genreFind);
+}
 
 
 function populateEditForm(data) {
-
+  console.log("data from Edit/$.ajax/ /api/cards/ + $cardId")
   console.log(data);
 
   var $modal = $('#modal1');
@@ -176,14 +196,7 @@ function populateEditForm(data) {
   $modal.find('#submit-btn').attr('id', 'edit-submit-btn');
   // $modal.find('#activity-form').attr('id', 'edit-activity-form');
 
-  // find genre name
-  console.log("playlist name is: ")
-  console.log(data.playlistName);
-  var genreNameTest = data.genre.genreName;
-  console.log("the genre is: ");
-  console.log(genreNameTest);
-  console.log("all genre info is:");
-  console.log($genreFind);
+
 
 }
 

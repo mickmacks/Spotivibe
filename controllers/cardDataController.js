@@ -34,7 +34,7 @@ function show(req, res) {
   // find one card by id and send it back as JSON
   db.Card.findById(req.params.cardId, function(err, card) {
     if(err) { console.log('error', err); }
-    console.log('responding with', card);
+    console.log('responding with (cardDataController)', card);
     res.json(card);
   });
 }
