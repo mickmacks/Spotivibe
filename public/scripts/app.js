@@ -16,21 +16,8 @@ $(document).ready(function() {
     success: renderMultipleActivities
   });
 
-  // trying to get genre data
-  $.ajax({
-    method: 'GET',
-    url: '/api/genres',
-    success: tryGetGenre
-  });
-
-  function tryGetGenre(data) {
-    console.log("genre data from app.js");
-    console.log(data);
-  }
-
-
   // MODAL FUNCTIONALITY
-  //initialize all modals
+  //initialize all modals           
   $('.modal').modal();
   //or by click on trigger
   $('.trigger-modal').modal();
@@ -56,12 +43,11 @@ $(document).ready(function() {
         console.log('clicked original post form');
 
         var formData = $(this).serializeArray();
-        console.log("app.js/edit/serializeArray")
         console.log(formData);
 
         $.post('/api/cards', formData, function(activity) {
           console.log('card after POST', activity);
-          renderActivityEdit(activity);  //render the server's response
+          renderActivity(activity);  //render the server's response
         });
 
         $(this).trigger("reset");
@@ -82,6 +68,7 @@ $(document).ready(function() {
           data: formData,
           success: handleCardUpdatedResponse
         });
+
 
         $(this).trigger("reset");
 
@@ -129,7 +116,6 @@ function handleDeleteCardSuccess(data) {
 // AFTER EDIT BUTTON CLICK
 
 function handleEditActivityClick(e) {
-  console.log("just clicked Edit button");
 
   editMode = true;
 
@@ -137,10 +123,6 @@ function handleEditActivityClick(e) {
 
   var $card = $(this).closest('.activity-card');
   var $cardId = $card.data('card-id');
-  //  here i am trying to find data from genre table - mjl
-  // var $activitiesContainer = $(this).closest('.activities');
-  // var $genreFind = $activitiesContainer.data('.activities');
-  // var $genreFind = db.genres.find();
 
   editId = $cardId;
 
@@ -150,41 +132,10 @@ function handleEditActivityClick(e) {
     success: populateEditForm
   });
 
-  // copying formData from example in edit/$.post
-  // var formData = $(this).serializeArray();
-  // console.log(formData);
-
-  $.get('/api/genres',  function(activity) {
-  // $.get('/api/genres', formData, function(activity) {
-    console.log('all genre data from app.js/edit ', activity);
-    renderActivityEdit(activity);  //render the server's response
-  });
-
-  // now try to get all genre data
-  $.ajax({
-    method: 'GET',
-    url: '/api/genres/' ,
-    success: printGenres
-  });
 }
-
-// now try to get all genre data
-function printGenres(data) {
-  console.log("all genre data? from app.js/Edit");
-  console.log(data);
-  // find genre name
-  // console.log("playlist name is: ")
-  // console.log(data.playlistName);
-  // var genreNameTest = data.genre.genreName;
-  // console.log("the genre is: ");
-  // console.log(genreNameTest);
-  // console.log("all genre info is:");
-  // console.log($genreFind);
-}
-
 
 function populateEditForm(data) {
-  console.log("data from Edit/$.ajax/ /api/cards/ + $cardId")
+
   console.log(data);
 
   var $modal = $('#modal1');
@@ -197,8 +148,6 @@ function populateEditForm(data) {
 
   $modal.find('#submit-btn').attr('id', 'edit-submit-btn');
   // $modal.find('#activity-form').attr('id', 'edit-activity-form');
-
-
 
 }
 
@@ -273,7 +222,7 @@ function renderActivity(activity) {
 
 }
 
-
+  
 ////////////////////////
 // PLAY & PAUSE BUTTONS
 ////////////////////////
@@ -297,14 +246,13 @@ function handlePlayButtonClick(e) {
   var clickedCardAudioTrack = clickedCardAudio.src;
   
   audio = new Audio(`` + clickedCardAudioTrack);
-  audio.pause();
   audio.play();
 
   $('html, body').animate({ scrollTop: 0 }, 'fast');
 
 }
 
-// PAUSE AUDIO
+// // PAUSE AUDIO
 
 // function handlePauseButtonClick(e) {
 
@@ -316,3 +264,5 @@ function handlePlayButtonClick(e) {
 //   audio.pause();
 
 // }
+
+

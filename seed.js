@@ -63,8 +63,10 @@ genreSeed.push({
 genreSeed.push({
   name: "Chill",
   imgLink: "/imgs/background1.jpg",
-  audLink: "/aud/hiphop.mp3",
-  colors: "#00f0be"
+
+  audLink: "/aud/chill.mp3",
+  colors: "#c0ffee"
+
 });
 genreSeed.push({
   name: "HipHop",
@@ -72,8 +74,6 @@ genreSeed.push({
   audLink: "/aud/hiphop.mp3",
   colors: "#00f0be"
 });
-
-
 
 //  this function takes in Genre with IDs, embed one in each card object
 function embedCard (cardSeed, genres) {
