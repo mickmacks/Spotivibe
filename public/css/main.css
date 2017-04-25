@@ -195,7 +195,7 @@ i.play-icon:hover {
 
 .card-data {
 
-	background-color: #455a64;
+	background-color: #607d8b;
 	color: white;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
@@ -246,6 +246,12 @@ i.play-icon:hover {
 .modal-content {
 
 	padding-bottom: 0px;
+
+}
+
+.hidden {
+
+	display: none;
 
 }
 
