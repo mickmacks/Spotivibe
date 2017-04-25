@@ -42,6 +42,7 @@ Please let us know if you have any questions or ideas for updates. You can reach
 3. Adding a new activity doesn't link image or audio file
 4. When opening a form for the second time, the input title and input values overlap.
 5. Pausing scrolls to top of page
+6. Responsive materialize grid system: cards break easily and don't stack properly. (container, row, col classes)
 
 ## Future Goals
 

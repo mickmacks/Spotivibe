@@ -52,7 +52,7 @@ h2 {
 	font-family: 'Merriweather', serif;
 	font-weight: 800;
 	color: #111;
-	padding: 30px 0px;
+	padding: 50px 0px 30px 0px;
 
 }
 
@@ -128,7 +128,7 @@ footer {
 
 	width: 100%;
 	background-color: #222222;
-	margin: 0px;
+	margin: -20px 0px 0px 0px;
 	padding: 0px;
 
 }
@@ -254,7 +254,7 @@ i.play-icon:hover {
 
 #index-banner {
 
-	background-image: url('/imgs/background.jpg');
+	background-image: url('/imgs/chill.mp4');
 	background-repeat: repeat-x;
 	width: 100%;
 	height: 100vh;
@@ -267,8 +267,10 @@ i.play-icon:hover {
 
 #activities-container {
 
+	background-color: #e2e2e2;
 	min-height: 700px;
-	padding-bottom: 60px;
+	margin-top: -30px;
+	padding-bottom: 80px;
 
 }
 
@@ -393,4 +395,49 @@ i.play-icon:hover {
 		transform: rotate(-45deg) translate(-20px, 20px);
 		opacity: 0;
 	}
+}
+
+
+/* B K G   V I D E O*/
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  }
+
+  .fullscreen-bg__video {
+    display: none;
+  }
 }
